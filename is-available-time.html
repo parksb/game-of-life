@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>is-available-time</title>
+</head>
+<body>
+    <script>
+        let isAvailableTime = (function () {
+            const SECOND_UNIT = {
+                DAY: 3600 * 24,
+                HALF: 3600 * 12,
+                HOUR: 3600,
+                MINUTE: 60
+            };
+            /* HH:mm 형식의 시간을 초 단위로 반환 */
+            let stringToTime = function (str) {
+                let [h, m] = str.split(':').map(v => parseInt(v));
+                return h * SECOND_UNIT.HOUR + m * SECOND_UNIT.MINUTE;
+            };
+            return function (pattern) {
+                let availableTime = pattern
+                    .split(',')
+                    .map(v => {
+                        let [days, times] = v.split(' '),
+                            [startTime, endTime] = times.split('~')
+                        ;
+                        return {
+                            days: days.split('/').map(v => parseInt(v)),
+                            startTime: stringToTime(startTime),
+                            endTime: stringToTime(endTime)
+                        };
+                    })
+                ;
+                return availableTime;
+            };
+        }());
+
+        console.log(isAvailableTime('0/3/6 09:00~20:00,4 11:00~23:00'));
+    </script>
+</body>
+</html>
