@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>alter-date-format</title>
+</head>
+<body>
+    <script>
+        /**
+         * @description
+         * t의 N초 뒤를 24시간 단위로 출력
+         */
+        let alterDateFormat = (function () {
+            const SECOND_UNIT = {
+                TIME: 3600 * 24,
+                HOUR: 3600,
+                MINUTE: 60
+            };
+            /* 1자리일 경우 앞에 0을 삽입 */
+            let fillZero = function (v) {
+                return ('0' + v).slice(-2);
+            };
+            /* HH:mm:ss 형식의 시간을 초 단위로 반환 */
+            let stringToTime = function (str) {
+                let [h, m, s] = str.split(':').map(v => parseInt(v));
+                return h * SECOND_UNIT.HOUR + m * SECOND_UNIT.MINUTE + s;
+            };
+            /* 초 단위 시간을 HH:mm:ss 형식의 문자열로 반환 */
+            let timeToString = function (time) {
+                (time >= SECOND_UNIT.TIME) && (time -= SECOND_UNIT.TIME);
+                let s = time % SECOND_UNIT.MINUTE,
+                    m = (time - s) % SECOND_UNIT.HOUR,
+                    h = (time - m - s)
+                ;
+                return [
+                    fillZero(h / SECOND_UNIT.HOUR),
+                    fillZero(m / SECOND_UNIT.MINUTE),
+                    fillZero(s)
+                ].join(':')
+            };
+
+            return function (t, N) {
+                let [midday, time] = t.split(' ');
+                time = stringToTime(time) + N;
+                (midday === 'PM') && (time += 12 * SECOND_UNIT.HOUR);
+                return timeToString(time);
+            };
+        }());
+
+        console.log(alterDateFormat('AM 11:27:35', 10));
+        console.log(alterDateFormat('PM 08:20:04', 17));
+        console.log(alterDateFormat('PM 01:00:00', 10));
+        console.log(alterDateFormat('PM 11:59:59', 1));
+    </script>
+</body>
+</html>
