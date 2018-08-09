@@ -6,20 +6,22 @@
 </head>
 <body>
     <script>
+        /**
+         * 시간 패턴으로 현재 이용 가능한 시간인지 확인
+         */
         let isAvailableTime = (function () {
-            const SECOND_UNIT = {
-                DAY: 3600 * 24,
-                HALF: 3600 * 12,
-                HOUR: 3600,
-                MINUTE: 60
+            /* 1자리일 경우 앞에 0을 삽입 */
+            let fillZero = function (v) {
+                return ('0' + v).slice(-2);
             };
-            /* HH:mm 형식의 시간을 초 단위로 반환 */
-            let stringToTime = function (str) {
-                let [h, m] = str.split(':').map(v => parseInt(v));
-                return h * SECOND_UNIT.HOUR + m * SECOND_UNIT.MINUTE;
-            };
-            return function (pattern) {
-                let availableTime = pattern
+            return function (pattern, testDate) {
+                let date = (testDate || new Date()),
+                    hhmm = [
+                        fillZero(date.getHours()),
+                        fillZero(date.getMinutes())
+                    ].join(':')
+                ;
+                return pattern
                     .split(',')
                     .map(v => {
                         let [days, times] = v.split(' '),
@@ -27,16 +29,30 @@
                         ;
                         return {
                             days: days.split('/').map(v => parseInt(v)),
-                            startTime: stringToTime(startTime),
-                            endTime: stringToTime(endTime)
+                            startTime: startTime,
+                            endTime: endTime
                         };
                     })
+                    .reduce((result, v) => {
+                        return result || (
+                            v.days.includes(date.getDay()) &&
+                            (v.startTime <= hhmm) &&
+                            (hhmm < v.endTime)
+                        );
+                    }, false)
                 ;
-                return availableTime;
             };
         }());
 
         console.log(isAvailableTime('0/3/6 09:00~20:00,4 11:00~23:00'));
+        console.log(isAvailableTime('0/3/6 09:00~20:00,4 11:00~23:00', new Date('2007-10-10 10:22:11')));
+        console.log(isAvailableTime('0/3/6 09:00~20:00,4 11:00~23:00', new Date('2010-12-09 23:10:30')));
+        console.log(isAvailableTime('0/3/6 09:00~20:00,4 11:00~23:00', new Date('2015-02-13 12:10:30')));
+
+        console.log(isAvailableTime('0/2/4 10:00~18:30'));
+        console.log(isAvailableTime('0/2/4 10:00~18:30', new Date('2007-10-10 10:22:11')));
+        console.log(isAvailableTime('0/2/4 10:00~18:30', new Date('2010-12-09 23:10:30')));
+        console.log(isAvailableTime('0/2/4 10:00~18:30', new Date('2015-02-13 12:10:30')));
     </script>
 </body>
 </html>
