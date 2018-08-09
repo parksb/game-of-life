@@ -33,13 +33,12 @@
                             endTime: endTime
                         };
                     })
-                    .reduce((result, v) => {
-                        return result || (
-                            v.days.includes(date.getDay()) &&
-                            (v.startTime <= hhmm) &&
-                            (hhmm < v.endTime)
+                    .some(v => {
+                        return (v.days.includes(date.getDay())
+                            && v.startTime <= hhmm
+                            && hhmm < v.endTime
                         );
-                    }, false)
+                    })
                 ;
             };
         }());
