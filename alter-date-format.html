@@ -12,7 +12,8 @@
          */
         let alterDateFormat = (function () {
             const SECOND_UNIT = {
-                TIME: 3600 * 24,
+                DAY: 3600 * 24,
+                HALF: 3600 * 12,
                 HOUR: 3600,
                 MINUTE: 60
             };
@@ -27,7 +28,6 @@
             };
             /* 초 단위 시간을 HH:mm:ss 형식의 문자열로 반환 */
             let timeToString = function (time) {
-                (time >= SECOND_UNIT.TIME) && (time -= SECOND_UNIT.TIME);
                 let s = time % SECOND_UNIT.MINUTE,
                     m = (time - s) % SECOND_UNIT.HOUR,
                     h = (time - m - s)
@@ -42,7 +42,8 @@
             return function (t, N) {
                 let [midday, time] = t.split(' ');
                 time = stringToTime(time) + N;
-                (midday === 'PM') && (time += 12 * SECOND_UNIT.HOUR);
+                (midday === 'PM') && (time += SECOND_UNIT.HALF);
+                (time >= SECOND_UNIT.DAY) && (time -= SECOND_UNIT.DAY);
                 return timeToString(time);
             };
         }());
