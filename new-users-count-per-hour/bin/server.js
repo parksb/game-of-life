@@ -1,11 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var path = require('path');
-var database = require('../../bin/database');
-
-router.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname, '../../public/index.html'));
-});
+var database = require('./database');
 
 router.get('/user-count', function(req, res) {
     console.log(database.selectByDate(0, Infinity).length);

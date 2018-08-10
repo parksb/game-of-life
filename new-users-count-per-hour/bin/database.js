@@ -9,7 +9,9 @@ const database = {
 };
 
 fs.readFile('users.json', 'utf8', function (err, data) {
-    database.records = JSON.parse(data);
+    database.records = JSON.parse(data).sort(function (v1, v2) {
+        return v1.date > v2.date ? 1 : v1.date < v2.date ? -1 : 0;
+    });
 });
 
 module.exports = database;
