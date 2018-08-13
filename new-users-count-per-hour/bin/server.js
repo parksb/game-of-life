@@ -7,8 +7,6 @@ router.get('/graph', function(req, res) {
 });
 
 router.get('/user-count', function(req, res) {
-    console.log(database.selectByDate(0, Infinity).length);
-    console.log(database.selectByDate(Date.parse('2017-09-17 12:20:00'), Date.parse('2017-09-17 12:30:00')).length);
     res.send(JSON.stringify(
         database.selectByDate(
             Date.parse('2017-09-17 12:20:00'),

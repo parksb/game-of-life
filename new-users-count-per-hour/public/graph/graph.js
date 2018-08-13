@@ -35,7 +35,10 @@
         for (let i = 0, max = data.length, standardTime = data[i] && data[i].date + ONE_HOUR; i < max; ++i) {
             let v = data[i];
             platforms[v.device] || (platforms[v.device] = {});
+
+            // 기준 시간 초과 시 1시간 뒤로 설정
             (standardTime < v.date) && (standardTime += ONE_HOUR);
+
             let platform = platforms[v.device];
             platform[standardTime] ? ++platform[standardTime] : (platform[standardTime] = 1);
         }
@@ -52,6 +55,7 @@
             };
         });
 
+        /* 그래프 데이터 기준 */
         position.x.domain(d3.extent(data, d => d.date));
         position.y.domain([
             d3.min(platforms, c => d3.min(c.values, d => d.usersCount)),
@@ -59,12 +63,14 @@
         ]);
         position.z.domain(platforms.map(c => c.id));
 
+        // x축
         graph.g
             .attr('transform', `translate(${graph.margin.left},${graph.margin.top})`)
             .append('g')
             .attr('transform', `translate(0,${graph.height})`)
             .call(d3.axisBottom(position.x))
         ;
+        // y축
         graph.g.append('g').call(d3.axisLeft(position.y))
             .append('text')
             .attr('transform', 'rotate(-90)')
@@ -80,12 +86,14 @@
             .enter()
             .append('g')
         ;
+        // 플랫폼 별 사용량 그래프
         platform.append('path')
             .attr('d', d => graph.line(d.values))
             .style('fill', 'none')
             .style('stroke-width', '1.5px')
             .style('stroke', d => position.z(d.id))
         ;
+        // 그래프 별 텍스트
         platform.append('text')
             .datum(d => ({
                 id: d.id,
