@@ -13,22 +13,27 @@
         #table {
             border-collapse: collapse;
             border-spacing: 0;
-            margin: auto;
+            margin: 20px auto;
+            width: 1920px;
         }
         .header {
             font-weight: bold;
         }
-        .data {
-        }
         .data, .header {
-            width: 200px;
-            height: 30px;
-        }
-        .percentage {
             display: inline-block;
+            width: 60px;
+            height: 30px;
+            line-height: 26px;
+            border: 1px solid #333;
+        }
+        .data:first-child,
+        .header:first-child {
+            width: 120px;
+        }
+        .android, .ios {
             color: white;
             height: 100%;
-            line-height: 30px;
+            display: inline-block;
         }
         .android {
             padding-left: 5px;
@@ -47,17 +52,44 @@
         <img src="/img/logo.png"/>
     </a>
     <table id="table">
-        <tr id="header" class="row">
-            <th class="header">시간</th>
-        </tr>
-
-        <tr class="row">
-            <td class="data"><span class="percentage android" style="width: calc(50% - 5px);">50</span><span class="percentage ios" style="width: calc(50% - 5px);">10</span></td>
-            <td class="data"><span class="percentage android" style="width: calc(50% - 5px);">50</span><span class="percentage ios" style="width: calc(50% - 5px);">10</span></td>
-            <td class="data"><span class="percentage android" style="width: calc(50% - 5px);">50</span><span class="percentage ios" style="width: calc(50% - 5px);">10</span></td>
-            <td class="data"><span class="percentage android" style="width: calc(50% - 5px);">50</span><span class="percentage ios" style="width: calc(50% - 5px);">10</span></td>
-            <td class="data"><span class="percentage android" style="width: calc(50% - 5px);">50</span><span class="percentage ios" style="width: calc(50% - 5px);">10</span></td>
-        </tr>
+        <thead>
+            <tr class="row">
+                <th class="header">시간</th>
+                <th class="header">00시</th>
+                <th class="header">01시</th>
+                <th class="header">02시</th>
+                <th class="header">03시</th>
+                <th class="header">04시</th>
+                <th class="header">05시</th>
+                <th class="header">06시</th>
+                <th class="header">07시</th>
+                <th class="header">08시</th>
+                <th class="header">09시</th>
+                <th class="header">10시</th>
+                <th class="header">11시</th>
+                <th class="header">12시</th>
+                <th class="header">13시</th>
+                <th class="header">14시</th>
+                <th class="header">15시</th>
+                <th class="header">16시</th>
+                <th class="header">17시</th>
+                <th class="header">18시</th>
+                <th class="header">19시</th>
+                <th class="header">20시</th>
+                <th class="header">21시</th>
+                <th class="header">22시</th>
+                <th class="header">23시</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+        <!--<tr class="row">
+            <td class="data"><span class="Android" style="width: calc(50% - 5px);">50</span><span class="percentage ios" style="width: calc(50% - 5px);">10</span></td>
+            <td class="data"><span class="Android" style="width: calc(50% - 5px);">50</span><span class="percentage ios" style="width: calc(50% - 5px);">10</span></td>
+            <td class="data"><span class="Android" style="width: calc(50% - 5px);">50</span><span class="percentage ios" style="width: calc(50% - 5px);">10</span></td>
+            <td class="data"><span class="Android" style="width: calc(50% - 5px);">50</span><span class="percentage ios" style="width: calc(50% - 5px);">10</span></td>
+            <td class="data"><span class="Android" style="width: calc(50% - 5px);">50</span><span class="percentage ios" style="width: calc(50% - 5px);">10</span></td>
+        </tr>-->
     </table>
     <script type="text/javascript" src="/table/table.js"></script>
 </body>
