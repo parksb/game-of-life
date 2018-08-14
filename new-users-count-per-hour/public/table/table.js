@@ -1,5 +1,42 @@
 const _ = document;
+const ONE_HOUR = 3600000;
+const HOUR = {
+    MIN: 0,
+    MAX: 24
+};
+
 (function () {
+    const View = {
+        fillZero: function (text) {
+            return `0${text}`.slice(-2);
+        },
+        getDateString: function (date) {
+            return `${date.getFullYear()}-${this.fillZero(date.getMonth() + 1)}-${this.fillZero(date.getDate())}`
+        },
+        createCell: function (platforms) {
+            let td = _.createElement('td'),
+                android = _.createElement('span'),
+                iOS = _.createElement('span'),
+                sum = platforms.Android + platforms.iOS,
+                bothZero = (platforms.Android === 0 && platforms.iOS === 0)
+            ;
+            if (platforms.Android || bothZero) {
+                android.className = 'android';
+                android.textContent = platforms.Android.toString();
+                android.style.width = `calc(${bothZero ? 50 : (platforms.Android * 100 / (sum))}% - 5px)`;
+                td.appendChild(android);
+            }
+            if (platforms.iOS || bothZero) {
+                iOS.className = 'ios';
+                iOS.textContent = platforms.iOS.toString();
+                iOS.style.width = `calc(${bothZero ? 50 : (platforms.iOS * 100 / (sum))}% - 5px)`;
+                td.appendChild(iOS);
+            }
+            td.className = 'data';
+            return td;
+        }
+    };
+
     let http = new XMLHttpRequest();
     http.addEventListener('load', function () {
         let data = JSON.parse(http.responseText),
@@ -10,16 +47,15 @@ const _ = document;
         let table = _.getElementById('table'),
             tbody = table.querySelector('tbody')
         ;
-
         while (standardTime < endDate) {
             let tr = _.createElement('tr'),
                 td = _.createElement('td')
             ;
-            td.textContent = standardTime.toString();
+            td.textContent = View.getDateString(new Date(standardTime));
             td.className = 'data';
             tr.className = 'row';
-            tr.append(td);
-            for (let i = 1, max = 25; i < max; ++i) {
+            tr.appendChild(td);
+            for (let i = HOUR.MIN + 1, max = HOUR.MAX + 1; i < max; ++i) {
                 let index = 0,
                     v = data[index],
                     platforms = {
@@ -27,43 +63,14 @@ const _ = document;
                         iOS: 0
                     }
                 ;
-                standardTime += 3600000;
+                standardTime += ONE_HOUR;
                 while (v && v.date < standardTime) {
                     let device = v.device.split(' ')[0];
                     ++platforms[device];
                     v = data[++index];
                 }
                 data.splice(0, index);
-
-                let td = _.createElement('td'),
-                    android = _.createElement('span'),
-                    iOS = _.createElement('span')
-                ;
-                android.className = 'android';
-                iOS.className = 'ios';
-                if (platforms.Android === 0 && platforms.iOS === 0) {
-                    android.style.width = 'calc(50% - 5px)';
-                    iOS.style.width = 'calc(50% - 5px)';
-                } else {
-                    if (platforms.Android) {
-                        android.style.width = `calc(${platforms.Android * 100 / (platforms.Android + platforms.iOS)}% - 5px)`;
-                    } else {
-                        android.style.width = '0px';
-                        android.style.paddingLeft = '0px';
-                    }
-                    if (platforms.iOS) {
-                        iOS.style.width = `calc(${platforms.iOS * 100 / (platforms.Android + platforms.iOS)}% - 5px)`;
-                    } else {
-                        iOS.style.width = '0px';
-                        iOS.style.paddingLeft = '0px';
-                    }
-                }
-                android.textContent = platforms.Android.toString();
-                iOS.textContent = platforms.iOS.toString();
-                td.className = 'data';
-                td.appendChild(android);
-                td.appendChild(iOS);
-                tr.appendChild(td);
+                tr.appendChild(View.createCell(platforms));
             }
             tbody.appendChild(tr);
         }
