@@ -1,12 +1,12 @@
-var router = require('express').Router();
-var path = require('path');
-var database = require('./database');
+const router = require('express').Router();
+const path = require('path');
+const database = require('./database');
 
-router.get('/graph', function(req, res) {
-    res.sendFile(path.join(__dirname, '../public/graph/graph.html'));
-});
+router.get('/graph', (req, res) => res.sendFile(path.join(__dirname, '../public/graph/graph.html')));
 
-router.get('/user-count', function(req, res) {
+router.get('/table', (req, res) => res.sendFile(path.join(__dirname, '../public/table/table.html')));
+
+router.get('/user-count', function (req, res) {
     res.send(JSON.stringify(
         database.selectByDate(
             Date.parse('2017-09-17 12:20:00'),
