@@ -9,10 +9,10 @@
             .y(d => position.y(d.usersCount))
         ),
         margin: {
-            top: 20,
+            top: 0,
+            left: 50,
             right: 80,
-            bottom: 30,
-            left: 50
+            bottom: 30
         },
         get width() { return (this.svg.attr('width') - this.margin.left - this.margin.right); } ,
         get height() { return (this.svg.attr('height') - this.margin.top - this.margin.bottom); },

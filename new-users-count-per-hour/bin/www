@@ -11,7 +11,7 @@ const http = require('http');
  * Normalize a port into a number, string, or false.
  */
 const port = (function (val) {
-    var port = parseInt(val, 10);
+    let port = parseInt(val, 10);
     if (isNaN(port)) {
         // named pipe
         return val;
@@ -43,7 +43,8 @@ www.on('error', function (error) {
 
     let bind = typeof port === 'string'
         ? 'Pipe ' + port
-        : 'Port ' + port;
+        : 'Port ' + port
+    ;
 
     // handle specific listen errors with friendly messages
     switch (error.code) {
@@ -64,10 +65,11 @@ www.on('error', function (error) {
  * Event listener for HTTP server "listening" event.
  */
 www.on('listening', function () {
-    var addr = www.address();
-    var bind = typeof addr === 'string'
+    let addr = www.address();
+    let bind = typeof addr === 'string'
         ? 'pipe ' + addr
-        : 'port ' + addr.port;
+        : 'port ' + addr.port
+    ;
     debug('Listening on ' + bind);
 });
 
