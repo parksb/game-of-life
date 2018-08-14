@@ -10,7 +10,7 @@ const http = require('http');
 /**
  * Normalize a port into a number, string, or false.
  */
-var port = (function (val) {
+const port = (function (val) {
     var port = parseInt(val, 10);
     if (isNaN(port)) {
         // named pipe
@@ -31,7 +31,7 @@ app.set('port', port);
 /**
  * Create HTTP server.
  */
-var www = http.createServer(app);
+const www = http.createServer(app);
 
 /**
  * Event listener for HTTP server "error" event.
@@ -41,7 +41,7 @@ www.on('error', function (error) {
         throw error;
     }
 
-    var bind = typeof port === 'string'
+    let bind = typeof port === 'string'
         ? 'Pipe ' + port
         : 'Port ' + port;
 
