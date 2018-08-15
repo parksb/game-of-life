@@ -8,7 +8,19 @@
 <script>
     let beautifulCode = function (code, count) {
         let indent = [...Array(count)].reduce(v => ` ${v}`, '');
-        return code.replace(/[\t\s]+$/gm, '');
+        return code.replace(/[\t\s]+$/gm, '')
+            .split('\n')
+            .map(line => {
+                let regExp = /^[\t\s]/g,
+                    matchers = line.match(regExp)
+                ;
+                return !matchers ? line : matchers
+                    .reduce((s, v) => s + (v === '\t' ? indent : v), '')
+                    .concat(line.replace(regExp, ''))
+                ;
+            })
+            .join('\n')
+        ;
     };
 </script>
 </body>
