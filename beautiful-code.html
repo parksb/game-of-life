@@ -8,6 +8,7 @@
 <script>
     let beautifulCode = function (code, count) {
         let indent = [...Array(count)].reduce(v => ` ${v}`, '');
+        return code.replace(/[\t\s]+$/gm, '');
     };
 </script>
 </body>
