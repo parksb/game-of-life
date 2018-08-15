@@ -22,6 +22,11 @@
             .join('\n')
         ;
     };
+    console.log(beautifulCode(`\t  \t  console.log('이게 \t코드냐?');   \nconsole.log('이런 문제를 왜 내는거야?');\n    \t\t\t  \tconsole.log('이게 나라냐?');\t`, 4));
+    console.log(beautifulCode(`   \t   \t   console.log('쌍'),\tconsole.log('쌍'),\tconsole.log('바');   \t\t`, 2));
+    console.log(beautifulCode(`\t\t\t\tconsole.log('바밤바')\n\t\n\tconsole.log('밤이 들어있는')\n    console.log('바밤바');`, 0));
+    console.log(beautifulCode(`\tconsole.log('죠스바')\n   console.log('스크류바')      \n \tconsole.log('바밤바');`, 5));
+    console.log(beautifulCode(`      console.log('비행기에 탑승하신 여러분')\t\n\tconsole.log('행복한 여행되세요')      \n  console.log('기내식은 바밤바');     \t`, 3));
 </script>
 </body>
 </html>
