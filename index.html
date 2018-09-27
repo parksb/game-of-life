@@ -6,12 +6,17 @@
 </head>
 <body>
     <script>
-        let start = performance.now();
+        let start1 = performance.now();
+        for (let i = 0, max = 10000; i < max; ++i) {
+            console.log('Test');
+        }
+        console.log(performance.now() - start1);
 
+        let start2 = performance.now();
         [...Array(10000)].forEach(function () {
             console.log('Test');
         });
-        console.log(performance.now() - start);
+        console.log(performance.now() - start2);
     </script>
 </body>
 </html>
