@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS-performance</title>
+</head>
+<body>
+    <script>
+        let start = performance.now();
+
+        [...Array(10000)].forEach(function () {
+            console.log('Test');
+        });
+        console.log(performance.now() - start);
+    </script>
+</body>
+</html>
