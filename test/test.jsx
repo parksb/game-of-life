@@ -1,27 +1,36 @@
 'use strict';
 
 class LikeButton extends React.Component {
-    state = {
-        liked: false
-    };
+    number = 0;
+    like = false;
 
     constructor(props) {
         super(props);
+        this.number = props.number;
     }
 
     render() {
-        console.log(this.state.liked);
         return (
-            <button onClick={() => {
-                let liked = this.state.liked;
-                this.setState({
-                    liked: !liked
-                });
-            }}>
-                {this.state.liked ? 'like' : 'unlike'}
+            <button
+                className="dddd"
+                onClick={() => {
+                    this.like = !this.like;
+                    this.setState({});
+                }}>
+                {this.number} - {this.like ? 'like' : 'unlike'}
             </button>
         );
     }
 }
 
-ReactDOM.render(<LikeButton />, document.getElementById('wrap'));
+class LikeButtonList extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return <ul>{ [1, 2, 3].map(n => <li><LikeButton number={n}/></li>) }</ul>;
+    }
+}
+
+ReactDOM.render(<LikeButtonList/>, document.getElementById('wrap'));

@@ -16,9 +16,10 @@ var LikeButton = function (_React$Component) {
 
         var _this = _possibleConstructorReturn(this, (LikeButton.__proto__ || Object.getPrototypeOf(LikeButton)).call(this, props));
 
-        _this.state = {
-            liked: false
-        };
+        _this.number = 0;
+        _this.like = false;
+
+        _this.number = props.number;
         return _this;
     }
 
@@ -27,16 +28,17 @@ var LikeButton = function (_React$Component) {
         value: function render() {
             var _this2 = this;
 
-            console.log(this.state.liked);
             return React.createElement(
                 'button',
-                { onClick: function onClick() {
-                        var liked = _this2.state.liked;
-                        _this2.setState({
-                            liked: !liked
-                        });
+                {
+                    className: 'dddd',
+                    onClick: function onClick() {
+                        _this2.like = !_this2.like;
+                        _this2.setState({});
                     } },
-                this.state.liked ? 'like' : 'unlike'
+                this.number,
+                ' - ',
+                this.like ? 'like' : 'unlike'
             );
         }
     }]);
@@ -44,4 +46,33 @@ var LikeButton = function (_React$Component) {
     return LikeButton;
 }(React.Component);
 
-ReactDOM.render(React.createElement(LikeButton, null), document.getElementById('wrap'));
+var LikeButtonList = function (_React$Component2) {
+    _inherits(LikeButtonList, _React$Component2);
+
+    function LikeButtonList(props) {
+        _classCallCheck(this, LikeButtonList);
+
+        return _possibleConstructorReturn(this, (LikeButtonList.__proto__ || Object.getPrototypeOf(LikeButtonList)).call(this, props));
+    }
+
+    _createClass(LikeButtonList, [{
+        key: 'render',
+        value: function render() {
+            return React.createElement(
+                'ul',
+                null,
+                [1, 2, 3].map(function (n) {
+                    return React.createElement(
+                        'li',
+                        null,
+                        React.createElement(LikeButton, { number: n })
+                    );
+                })
+            );
+        }
+    }]);
+
+    return LikeButtonList;
+}(React.Component);
+
+ReactDOM.render(React.createElement(LikeButtonList, null), document.getElementById('wrap'));
