@@ -1,19 +1,24 @@
 'use strict';
 
 class LikeButton extends React.Component {
+    state = {
+        liked: false
+    };
+
     constructor(props) {
         super(props);
-        this.state = { liked: false };
     }
 
     render() {
-        if (this.state.liked) {
-            return 'You liked this.';
-        }
-
+        console.log(this.state.liked);
         return (
-            <button onClick={() => this.setState({ liked: true }) }>
-                Like
+            <button onClick={() => {
+                let liked = this.state.liked;
+                this.setState({
+                    liked: !liked
+                });
+            }}>
+                {this.state.liked ? 'like' : 'unlike'}
             </button>
         );
     }
