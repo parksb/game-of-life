@@ -1,4 +1,5 @@
-'use strict';
+import * as React from "react";
+import * as ReactDOM from "react-dom";
 
 class LikeButton extends React.Component {
     number = 0;
@@ -16,7 +17,7 @@ class LikeButton extends React.Component {
                 onClick={() => {
                     this.like = !this.like;
                     this.setState({});
-                }}>
+                }}>0
                 {this.number} - {this.like ? 'like' : 'unlike'}
             </button>
         );
@@ -29,8 +30,8 @@ class LikeButtonList extends React.Component {
     }
 
     render() {
-        return <ul>{ [1, 2, 3].map(n => <li><LikeButton number={n}/></li>) }</ul>;
+        return <ul>{ [1, 2, 3].map(n => <li><LikeButton/></li>) }</ul>;
     }
 }
 
-ReactDOM.render(<LikeButtonList/>, document.getElementById('wrap'));
+ReactDOM.render(<LikeButtonList/>, document.getElementById('main'));
