@@ -1,5 +1,6 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
+import styled from "styled-components";
 
 class LikeButton extends React.Component {
     number = 0;
@@ -11,15 +12,17 @@ class LikeButton extends React.Component {
     }
 
     render() {
+        const Button = styled.button`
+            background-color: red;
+        `;
         return (
-            <button
-                className="dddd"
+            <Button
                 onClick={() => {
                     this.like = !this.like;
                     this.setState({});
                 }}>0
                 {this.number} - {this.like ? 'like' : 'unlike'}
-            </button>
+            </Button>
         );
     }
 }
