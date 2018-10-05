@@ -9,6 +9,9 @@ const {NoEmitOnErrorsPlugin, NamedModulesPlugin} = require('webpack');
 const entryPoints = ["inline", "polyfills", "sw-register", "styles", "vendor", "main"];
 
 module.exports = {
+    optimization: {
+
+    },
     entry: {
         main: './src/test.tsx'
     },

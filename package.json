@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "build": "webpack"
+    "build": "webpack",
+    "start": "webpack-dev-server"
   },
   "dependencies": {
     "react": "^16.5.2",
@@ -18,6 +19,7 @@
   },
   "devDependencies": {
     "@types/react": "^16.4.14",
-    "@types/react-dom": "^16.0.8"
+    "@types/react-dom": "^16.0.8",
+    "webpack-dev-server": "^3.1.9"
   }
 }
