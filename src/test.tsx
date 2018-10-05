@@ -1,3 +1,5 @@
+import "./style/bootstrap.min.css";
+import "./style/custom.css";
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import styled from "styled-components";
@@ -37,4 +39,4 @@ class LikeButtonList extends React.Component {
     }
 }
 
-ReactDOM.render(<LikeButtonList/>, document.getElementById('main'));
+ReactDOM.render(<LikeButtonList/>, document.getElementById('container'));
