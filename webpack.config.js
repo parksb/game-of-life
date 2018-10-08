@@ -10,7 +10,7 @@ const entryPoints = ["inline", "polyfills", "sw-register", "styles", "vendor", "
 
 module.exports = {
     optimization: {
-
+        minimize: false
     },
     entry: {
         main: './src/test.tsx'

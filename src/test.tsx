@@ -4,10 +4,14 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import styled from "styled-components";
 
+const HEIGHT = 37;
+
 class LikeButtonList extends React.Component {
     groups = [{
         name: '쇼핑몰',
         icon: 'fa-store',
+        active: false,
+        isClick: false,
         menus: [
             { id: 'shop_list', name: '쇼핑몰 목록', link: '/shops' },
             { id: 'shop_states', name: '쇼핑몰 상태', link: '/shop_states' },
@@ -20,6 +24,8 @@ class LikeButtonList extends React.Component {
     }, {
         name: '상품',
         icon: ' fa-tshirt',
+        active: false,
+        isClick: false,
         menus: [
             { id: 'goods', name: '상품 검색' },
             { id: 'search_goods_category', name: '상품 카테고리 검색' },
@@ -35,6 +41,8 @@ class LikeButtonList extends React.Component {
     }, {
         name: '사용자',
         icon: 'fa-user',
+        active: false,
+        isClick: false,
         menus: [
             { id: 'user_list', name: '사용자', link: '/users' },
             { id: 'user_activity_log_group_list', name: '사용자 활동 로그', link: '/user_activity_log_groups' },
@@ -44,6 +52,8 @@ class LikeButtonList extends React.Component {
     }, {
         name: '셀러',
         icon: 'fa-user-tie',
+        active: false,
+        isClick: false,
         menus: [
             { id: 'seller_accounts', name: '셀러 계정 목록' },
             { id: 'seller_notice_list', name: '마케팅센터 공지사항', link: '/seller_notices' },
@@ -56,6 +66,8 @@ class LikeButtonList extends React.Component {
     }, {
         name: '통계',
         icon: 'fa-chart-pie',
+        active: false,
+        isClick: false,
         menus: [
             { id: 'zigzag_metrics_dailies', name: '일간 통계' },
             { id: 'zigzag_metrics_weeklies', name: '주간 통계' },
@@ -68,6 +80,8 @@ class LikeButtonList extends React.Component {
     }, {
         name: '광고',
         icon: 'fa-tv',
+        active: false,
+        isClick: false,
         menus: [
             { id: 'ad_display_dashboard', name: '대시보드', link: '/ad_display/dashboard' },
             { id: 'ad_display_review_contents', name: '소재 검수', link: '/ad_display/contents' },
@@ -83,6 +97,8 @@ class LikeButtonList extends React.Component {
     }, {
         name: '재무/관리',
         icon: 'fa-dollar-sign',
+        active: false,
+        isClick: false,
         menus: [
             {id: 'shop_charge_daily', name: '일일 쇼핑몰 충전 내역', link: '/payment/shop_charge_daily'},
             {id: 'shop_settlement_list', name: '쇼핑몰 정산 목록', link: '/shop_settlement'},
@@ -94,6 +110,12 @@ class LikeButtonList extends React.Component {
         ],
     }];
 
+    clickGroup(group) {
+        group.active = !group.active;
+        group.isClick = true;
+        this.setState({});
+    }
+
     constructor(props) {
         super(props);
     }
@@ -102,7 +124,7 @@ class LikeButtonList extends React.Component {
         const Nav = styled.nav`
             width: 250px;
             padding: 30px;
-            background: linear-gradient(135deg,#8f75da 0,#727cf5 60%);
+            background-image: linear-gradient(294deg, #ff3898, #ff4177);
             
             @media (max-width: 1080px) {
                 width: 70px;
@@ -110,6 +132,8 @@ class LikeButtonList extends React.Component {
             }
         `;
         const Group = styled.div`
+            position: relative;
+            cursor: pointer;
             color: white;
             margin-top: 30px;
             margin-bottom: 15px;
@@ -121,7 +145,18 @@ class LikeButtonList extends React.Component {
             
             > .title {
                 font-size: 1.0875rem;
-                line-height: 1.3875rem;
+                vertical-align: top;
+            }
+            
+            &::after {
+                position: absolute;
+                top: 50%;
+                right: 0;
+                transform: translateY(-50%);
+                content: '';
+                display: block;
+                border: 6px solid transparent;
+                border-top-color: white;
             }
             
             @media (max-width: 1080px) {
@@ -135,43 +170,68 @@ class LikeButtonList extends React.Component {
                 }
             }
         `;
-        const Menu = styled.ul`
-            margin-left: 5px;
-            transition: color 200ms ease;
-            
-            &.active, &:hover {
-                color: white;
-            }
-            
-            > .menu {
-                margin-bottom: 15px;
-                > .link {
-                    color: #cedce4;
-                    font-size: .9375rem;
-                }
-            }
-            
-            @media (max-width: 1080px) {
-                > .title {
-                    display: none;
-                }
-            }
-        `;
         return (
             <Nav>
                 {this.groups.map(group => {
+                    const height = group.menus.length * HEIGHT;
+                    const Menu = styled.div`
+                        height: ${group.active ? height : 0}px;
+                        margin-left: 5px;
+                        overflow: hidden;
+
+                        > .menu {
+                            display: block;
+                            color: rgba(255, 255, 255, 0.8);
+                            height: 22px;
+                            font-size: .9375rem;
+                            margin-bottom: 15px;
+                            transition: color 200ms ease;
+
+                            &.active, &:hover {
+                                color: white;
+                            }
+                        }
+
+                        ${!group.isClick ? '' : `
+                            & {
+                                animation-name: fade-${group.active ? 'in' : 'out'};
+                                animation-duration: ${group.menus.length * 30 + 200}ms;
+                            }
+                            @keyframes fade-in {
+                              from {
+                                opacity: 0.0;
+                                height: 0px;
+                              }
+                              to {
+                                opacity: 1.0;
+                                height: ${height}px;
+                              }
+                            }
+
+                            @keyframes fade-out {
+                              from {
+                                opacity: 1.0;
+                                height: ${height}px;
+                              }
+                              to {
+                                opacity: 0.0;
+                                height: 0px;
+                              }
+                            }
+                        `}
+                    `;
+                    group.isClick = false;
                     return [
-                        <Group>
-                            <i className={`fas ${group.icon}`}></i>
+                        <Group onClick={() => this.clickGroup(group)}>
+                            <i className={`fas ${group.icon}`}/>
                             <span className="title">{group.name}</span>
-                        </Group>
-                    ].concat([
-                        <Menu className="menus">
+                        </Group>,
+                        <Menu className={`menus`}>
                             {group.menus.map(menu => {
-                                return <li className="menu"><a className="link" href={menu.link || menu.id}>{menu.name}</a></li>;
+                                return <a className="menu" href={menu.link || menu.id}>{menu.name}</a>;
                             })}
                         </Menu>
-                    ]);
+                    ];
                 })}
             </Nav>
         );
