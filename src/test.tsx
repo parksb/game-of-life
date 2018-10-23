@@ -1,5 +1,10 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
+import TopAppBar from '@material/react-top-app-bar';
+import Button from '@material/react-button';
+import MaterialIcon from '@material/react-material-icon';
+import '@material/react-top-app-bar/index.scss';
+import '@material/react-material-icon/index.scss';
 
 const styles = require('./test.scss');
 
@@ -9,9 +14,18 @@ class Test extends React.Component {
     }
 
     render() {
-        return (
-            <button id={styles.test}>히히히히히</button>
-        );
+        return [
+            <TopAppBar
+                className={styles.app_bar}
+                title='Miami, FL'
+                navigationIcon={<MaterialIcon
+                    icon='menu'
+                    onClick={() => console.log('click')}
+                />}
+                actionItems={[<MaterialIcon key='item' icon='bookmark' />]}
+            />,
+            <Button id={styles.button}>히히히히히히</Button>
+        ];
     }
 }
 
