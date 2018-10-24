@@ -6,6 +6,7 @@
       url(NanumSquareR.woff) format('woff'),
       url(NanumSquareR.ttf) format('truetype');
 }
+
 @font-face {
  font-family: 'NanumSquare';
  font-weight: 700;
@@ -14,6 +15,7 @@
       url(NanumSquareB.woff) format('woff'),
       url(NanumSquareB.ttf) format('truetype');
 }
+
 @font-face {
  font-family: 'NanumSquare';
  font-weight: 800;

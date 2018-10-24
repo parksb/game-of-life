@@ -11,10 +11,9 @@ class Main extends React.Component {
 
     render() {
         return [
-            <Header/>,
-            <span>asdasd</span>
+            <Header/>
         ];
     }
 }
 
-ReactDOM.render(<Main/>, document.getElementById('container'));
+ReactDOM.render(<Main/>, document.getElementById('body'));
