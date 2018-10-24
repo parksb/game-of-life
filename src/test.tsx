@@ -5,6 +5,7 @@ import Button from '@material/react-button';
 import MaterialIcon from '@material/react-material-icon';
 import '@material/react-top-app-bar/index.scss';
 import '@material/react-material-icon/index.scss';
+import './reset.scss';
 
 const styles = require('./test.scss');
 

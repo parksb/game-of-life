@@ -1,10 +1,9 @@
 @import "~@material/top-app-bar/mixins";
 @import "~@material/button/mixins";
-
+@import "./define";
 
 :local .app_bar {
-  @include mdc-top-app-bar-fill-color(hotpink);
-  position: relative;
+  @include brand_gradient;
 }
 
 :local #button {
