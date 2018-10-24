@@ -13,7 +13,7 @@ module.exports = {
         minimize: false
     },
     entry: {
-        main: './src/test.tsx'
+        main: './src/main.tsx'
     },
     output: {
         path: path.join(process.cwd(), 'dist'),
