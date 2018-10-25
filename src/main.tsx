@@ -11,7 +11,7 @@ class Main extends React.Component {
 
     render() {
         return [
-            <Header/>
+            <Header/>,
         ];
     }
 }
