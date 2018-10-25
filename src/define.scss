@@ -1,7 +1,6 @@
-$mdc-typography-font-family: 'NanumSquare';
-
 $brand_color1: #ff38a0;
 $brand_color2: #ff4177;
+$brand_color3: #ff3c73;
 
 @mixin brand_gradient() {
   background: linear-gradient(to left, $brand_color1, $brand_color2);

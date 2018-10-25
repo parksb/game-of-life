@@ -1,8 +1,6 @@
 @import "../define";
-@import '~@material/react-top-app-bar/index.scss';
-@import "~@material/react-material-icon/index.scss";
-@import '~@material/react-ripple/index.scss';
 
 :local .app_bar {
   @include brand_gradient;
+  font-weight: 800;
 }
