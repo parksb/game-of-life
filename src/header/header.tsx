@@ -42,7 +42,7 @@ export class Header extends React.Component {
                 title="ZigZag"
                 className={styles.app_bar}
                 navigationIcon={<MaterialIcon icon="menu" onClick={() => this.setState({open: true})}/>}
-            ></TopAppBar>,
+            />,
             <Drawer
                 modal
                 open={this.state.open}

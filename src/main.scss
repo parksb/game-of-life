@@ -1,4 +1,4 @@
-@import "./define";
+@import "define";
 
 @keyframes bear {
   0% { transform: translateY(0) rotate(-4deg); }
@@ -43,4 +43,10 @@
   animation-duration: 1.5s;
   animation-iteration-count: infinite;
   transition: transform 1.5s ease;
+}
+
+
+:local .menu {
+  color: $brand_color3;
+  font-weight: bold;
 }
