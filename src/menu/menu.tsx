@@ -18,19 +18,13 @@ export class Menu extends React.Component {
             activeIndex={this.state.activeIndex}
             handleActiveIndexUpdate={(activeIndex) => this.setState({activeIndex})}>
             <Tab className={styles.tab}>
-                <span className={styles.menu}>Menu1</span>
+                <span className={styles.menu}>광고관리</span>
             </Tab>
             <Tab className={styles.tab}>
-                <span className={styles.menu}>Menu2</span>
+                <span className={styles.menu}>Z코인(332,718원)</span>
             </Tab>
             <Tab className={styles.tab}>
-                <span className={styles.menu}>Menu3</span>
-            </Tab>
-            <Tab className={styles.tab}>
-                <span className={styles.menu}>Menu4</span>
-            </Tab>
-            <Tab className={styles.tab}>
-                <span className={styles.menu}>Menu5</span>
+                <span className={styles.menu}>알림설정</span>
             </Tab>
         </TabBar>;
     }
