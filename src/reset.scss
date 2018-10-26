@@ -36,9 +36,12 @@ html, body {
   background-color: $brand_color1;
 }
 
+@import "~@material/list/mdc-list";
+@import "~@material/menu/mdc-menu";
 @import "~@material/react-top-app-bar/index";
 @import "~@material/react-material-icon/index";
 @import "~@material/react-tab/index";
 @import "~@material/react-tab-scroller/index";
 @import "~@material/react-tab-indicator/index";
 @import '~@material/react-button/index';
+@import '~@material/react-menu-surface/index';

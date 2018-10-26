@@ -4,3 +4,8 @@
   @include brand_gradient;
   font-weight: 800;
 }
+
+:local #menus {
+  height: calc(100vh - 10px);
+  max-height: none!important;
+}

@@ -4,6 +4,7 @@ import {Header} from "./header/header";
 import {Menu} from "./menu/menu";
 import {TopAppBarFixedAdjust} from '@material/react-top-app-bar';
 
+
 import './reset.scss';
 import {BlueButton1} from "./button/blue-button1";
 
@@ -17,7 +18,6 @@ class Main extends React.Component {
             <Header/>,
             <TopAppBarFixedAdjust>
                 <Menu></Menu>
-                <BlueButton1>충전하기</BlueButton1>
             </TopAppBarFixedAdjust>
         ];
     }
