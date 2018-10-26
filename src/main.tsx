@@ -8,6 +8,9 @@ import {TopAppBarFixedAdjust} from '@material/react-top-app-bar';
 const styles = require('./main.scss');
 
 import './reset.scss';
+import {Bear} from "./bear/bear";
+import {ZCoin} from "./z-coin/z-coin";
+import {Notifig} from "./notifig/notifig";
 
 class Main extends React.Component {
     state = {
@@ -34,17 +37,7 @@ class Main extends React.Component {
                         <span className={styles.menu}>알림설정</span>
                     </Tab>
                 </TabBar>
-                {
-                    this.state.activeIndex === 0 ?
-                        <div id="bear">
-                            <img id={styles.bear_body} src="https://static.npmjs.com/c9e19250d48d66f0e9c70c9b3991bbdb.png"/>
-                            <img id="bear_face" src="https://static.npmjs.com/6bf09f9948c3044dbb2c7ed8b85098dc.png"/>
-                        </div> :
-                    this.state.activeIndex === 1 ?
-                        '2222' :
-                    this.state.activeIndex === 2 ?
-                        '33333' : ''
-                }
+                { this.state.activeIndex === 0 ? <Bear/> : this.state.activeIndex === 1 ? <ZCoin/> : this.state.activeIndex === 2 ? <Notifig/> : '' }
             </TopAppBarFixedAdjust>
         ];
     }
