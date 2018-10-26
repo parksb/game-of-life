@@ -1,7 +1,8 @@
 import * as React from "react";
 import TopAppBar from "@material/react-top-app-bar";
 import MaterialIcon from "@material/react-material-icon";
-import MenuSurface, {Corner} from '@material/react-menu-surface';
+import List, {ListItem, ListItemMeta, ListItemText, ListItemGraphic} from '@material/react-list';
+import Drawer, {DrawerHeader, DrawerTitle, DrawerSubtitle, DrawerContent} from '@material/react-drawer';
 
 const styles = require('./header.scss');
 
@@ -10,16 +11,28 @@ export class Header extends React.Component {
         super(props);
     }
 
-    menus = [
-        '파워업 광고',
-        '전체 성과',
-        '상품 관리',
-        '주문 정보',
-        '쇼핑몰 정보 변경',
-        '공지사항'
-    ];
+    menus = [{
+        name: '파워업 광고',
+        icon: 'near_me'
+    }, {
+        name: '전체 성과',
+        icon: 'bar_chart'
+    }, {
+        name: '상품 관리',
+        icon: 'assignment'
+    }, {
+        name: '주문 정보',
+        icon: 'shopping_cart'
+    }, {
+        name: '쇼핑몰 정보 변경',
+        icon: 'info'
+    }, {
+        name: '공지사항',
+        icon: 'notifications'
+    }];
 
     state = {
+        selectedIndex: 1,
         open: false
     };
 
@@ -30,19 +43,22 @@ export class Header extends React.Component {
                 className={styles.app_bar}
                 navigationIcon={<MaterialIcon icon="menu" onClick={() => this.setState({open: true})}/>}
             ></TopAppBar>,
-            <MenuSurface
-                id={styles.menus}
+            <Drawer
+                modal
                 open={this.state.open}
-                anchorCorner={Corner.BOTTOM_LEFT}
                 onClose={() => this.setState({open: false})}>
-                <ul className="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical">
-                    {this.menus.map(name => (
-                        <li className="mdc-list-item" role="menuitem">
-                            <span className="mdc-list-item__text">{name}</span>
-                        </li>
-                    ))}
-                </ul>
-            </MenuSurface>
+                <DrawerHeader> {/*defaults to div*/}
+                    <DrawerTitle tag='h1'>100k</DrawerTitle>
+                    <DrawerSubtitle>100k.kr</DrawerSubtitle>
+                </DrawerHeader>
+                <List singleSelection={true} selectedIndex={this.state.selectedIndex}>
+                    {this.menus.map(v => <ListItem>
+                        <ListItemGraphic graphic={<MaterialIcon icon={v.icon}/>} />
+                        <ListItemText primaryText={v.name} />
+                    </ListItem>)}
+                </List>
+                <a href="#"></a>
+            </Drawer>,
         ];
     }
 }
