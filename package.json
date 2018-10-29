@@ -27,6 +27,7 @@
     "@material/top-app-bar": "^0.40.1",
     "@material/ripple": "^0.40.1",
     "@material/layout-grid": "^0.40.1",
+    "@material/elevation": "^0.40.1",
     "@material/react-tab": "^0.6.1",
     "@material/react-list": "^0.6.1",
     "@material/react-tab-bar": "^0.6.1",

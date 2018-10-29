@@ -34,8 +34,8 @@ html, body {
 
 .wrap {
   margin: 10px;
-  padding: 15px 20px;
   background-color: white;
+  border: 1px solid transparent;
 }
 
 ::selection {
@@ -44,11 +44,12 @@ html, body {
 }
 
 @import "~@material/layout-grid/mdc-layout-grid";
+@import "~@material/elevation/mdc-elevation";
 @import "~@material/react-top-app-bar/index";
 @import "~@material/react-material-icon/index";
 @import "~@material/react-tab/index";
 @import "~@material/react-tab-scroller/index";
 @import "~@material/react-tab-indicator/index";
-@import '~@material/react-button/index';
-@import '~@material/react-drawer/index';
-@import '~@material/react-list/index';
+@import "~@material/react-button/index";
+@import "~@material/react-drawer/index";
+@import "~@material/react-list/index";
