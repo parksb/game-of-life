@@ -25,6 +25,7 @@ class Main extends React.Component {
             <Header/>,
             <TopAppBarFixedAdjust>
                 <TabBar
+                    style={{backgroundColor:'white'}}
                     activeIndex={this.state.activeIndex}
                     handleActiveIndexUpdate={(activeIndex) => this.setState({activeIndex})}>
                     <Tab className={styles.tab}>
