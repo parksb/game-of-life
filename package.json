@@ -36,6 +36,7 @@
     "@material/react-tab-indicator": "^0.6.0",
     "@material/react-button": "^0.6.1",
     "@material/react-drawer": "^0.6.1",
+    "@material/react-checkbox": "^0.6.1",
     "@material/react-material-icon": "^0.6.1"
   }
 }
