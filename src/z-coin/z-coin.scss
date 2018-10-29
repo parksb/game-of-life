@@ -19,8 +19,8 @@
 :local #coin_balance_btn {
   margin-top: 25px;
   > button {
-    width: 100px;
-    height: 40px;
+    width: 98px;
+    height: 38px;
     font-weight: bold;
     border: 1px solid transparent;
   }
@@ -45,7 +45,7 @@
     box-sizing: border-box;
     vertical-align: top;
     width: 50%;
-    padding: 20px 8px 15px 8px;
+    padding: 20px 11px 15px 9px;
     &:first-child {
       border-right: 1px solid #eeeef4;
     }
@@ -79,7 +79,7 @@
 :local #coin_description_table {
   margin-top: 10px;
   > .filter {
-    padding: 10px 0 8px 6px;
+    padding: 12px 0 10px 3px;
     border: solid 1px #eeeef2;
     background-color: #fafafc;
     > .button {
@@ -87,8 +87,8 @@
       color: #363a42;
       font-size: 0.9rem;
       font-weight: bold;
-      padding-left: 7px;
-      padding-right: 7px;
+      padding-left: 10px;
+      padding-right: 10px;
       &.active {
         opacity: 1;
       }
@@ -109,7 +109,7 @@
       border-right: 1px solid #eeeef2;
       > span, h4 {
         border-bottom: 1px solid #eeeef2;
-        padding: 8px 10px 6px 10px;
+        padding: 10px 10px 8px 10px;
       }
     }
     > .header {

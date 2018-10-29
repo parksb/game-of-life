@@ -1,1 +1,35 @@
 @import "../define";
+@import "~@material/checkbox/mixins";
+@import "~@material/ripple/mixins";
+
+:global .checkbox {
+  @include mdc-states(#4769f7);
+  @include mdc-checkbox-container-colors(#4769f7, transparent, #4769f7, #4769f7 ,true);
+  ~ span {
+    color: #363a42;
+    line-height: 2.4rem;
+    font-size: 0.9rem;
+  }
+}
+:local #notice_config {
+  padding: 15px;
+  > h3 {
+    color: #363a42;
+    font-weight: 800;
+    font-size: 1.1rem;
+  }
+  > p {
+    margin-top: 10px;
+    color: #878796;
+    font-size: 0.8rem;
+  }
+  > h4 {
+    color: #878796;
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin: 20px 0 5px 5px;
+  }
+  > .checkbox {
+    display: block;
+  }
+}

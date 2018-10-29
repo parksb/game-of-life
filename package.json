@@ -1,7 +1,8 @@
 {
   "scripts": {
     "build": "webpack",
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "public": "webpack-dev-server --host 0.0.0.0 --public 10.50.101.221:4200"
   },
   "dependencies": {
     "react": "^16.5.2",
