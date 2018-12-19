@@ -1,43 +1,20 @@
 {
   "scripts": {
-    "build": "webpack",
-    "start": "webpack-dev-server",
-    "public": "webpack-dev-server --host 0.0.0.0 --public 10.50.101.221:4200"
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
   },
   "dependencies": {
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
-    "typescript": "^3.1.1",
-    "webpack": "^4.20.2",
-    "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.9",
-    "css-loader": "^1.0.0",
-    "style-loader": "^0.23.1",
-    "sass-loader": "^7.1.0",
-    "node-sass": "^4.9.4",
-    "html-webpack-plugin": "^3.2.0",
-    "clean-webpack-plugin": "^0.1.19",
-    "circular-dependency-plugin": "^5.0.2",
-    "awesome-typescript-loader": "^5.2.1"
+    "next": "^7.0.2",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "element-position": "^0.2.9"
   },
   "devDependencies": {
-    "@types/react": "^16.4.14",
-    "@types/react-dom": "^16.0.8",
-    "@material/tab": "^0.40.1",
-    "@material/tab-bar": "^0.40.1",
-    "@material/top-app-bar": "^0.40.1",
-    "@material/ripple": "^0.40.1",
-    "@material/layout-grid": "^0.40.1",
-    "@material/elevation": "^0.40.1",
-    "@material/react-tab": "^0.6.1",
-    "@material/react-list": "^0.6.1",
-    "@material/react-tab-bar": "^0.6.1",
-    "@material/react-top-app-bar": "^0.6.1",
-    "@material/react-tab-scroller": "^0.6.1",
-    "@material/react-tab-indicator": "^0.6.0",
-    "@material/react-button": "^0.6.1",
-    "@material/react-drawer": "^0.6.1",
-    "@material/react-checkbox": "^0.6.1",
-    "@material/react-material-icon": "^0.6.1"
+    "@types/node": "^10.12.17",
+    "@types/react": "^16.7.17",
+    "@types/react-dom": "^16.0.11",
+    "@types/styled-jsx": "^2.2.7",
+    "@zeit/next-typescript": "^1.1.1"
   }
 }

@@ -1,19 +1,19 @@
 {
-  "compileOnSave": false,
   "compilerOptions": {
-    "jsx": "react",
-    "target": "es5",
-    "module": "commonjs",
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "jsx": "preserve",
+    "lib": ["dom", "es2017"],
+    "module": "esnext",
     "moduleResolution": "node",
-    "lib": ["dom","es2017","es6"],
-    "sourceMap": false,
-    "alwaysStrict": true,
+    "noEmit": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "preserveConstEnums": true,
+    "removeComments": false,
     "skipLibCheck": true,
-    "removeComments": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "suppressImplicitAnyIndexErrors": true,
-    "types": ["node"]
-  },
-  "exclude": ["node_modules"]
+    "sourceMap": true,
+    "strict": true,
+    "target": "esnext"
+  }
 }

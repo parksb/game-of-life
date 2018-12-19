@@ -1,2 +1,1 @@
-# react-lab
-React 연구실
+# next-example
