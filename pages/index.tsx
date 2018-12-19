@@ -1,9 +1,9 @@
 import styles from './styles.scss';
 
 export default () => (
-  <div>
+  <div className="wrap">
     <style jsx>{styles}</style>
     Hello world
-    <p>scoped!</p>
+    <p className="contents">scoped!</p>
   </div>
 );

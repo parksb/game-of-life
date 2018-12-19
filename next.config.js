@@ -1,7 +1,6 @@
 const withTypescript = require('@zeit/next-typescript');
 
 module.exports = withTypescript({
-	sourceMap: false,
 	webpack(config, options) {
 		config.module.rules.push({
 			test: /\.scss$/,
@@ -15,7 +14,8 @@ module.exports = withTypescript({
 						]
 					}
 				},
-				'styled-jsx-css-loader'
+				'styled-jsx-css-loader',
+				{ loader: 'sass-loader', options: { sourceMap: false } }
 			]
 		});
 		return config
