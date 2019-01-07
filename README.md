@@ -1,1 +1,1 @@
-# next-example
+# js-fundamentals
