@@ -12,7 +12,7 @@ inline-level 요소는 한 줄에 나열할 수 있는 요소들을 말합니다
 display 속성을 inline, inline-block, inline-table 등으로 지정해서 만들 수 있는데요.
 이 요소들에 의해서 만들어진 가상의 박스들은 곧 해당 요소의 크기를 나타냅니다.
 
-간단한 예를 들자면 아래처럼 css가 적용된 요소의 박스 크기는 100x100px입니다.
+간단한 예를 들자면 아래처럼 css가 적용된 요소의 박스 크기는 100\*100px입니다.
 ```
 .box {
   display: inline-block;
@@ -22,14 +22,43 @@ display 속성을 inline, inline-block, inline-table 등으로 지정해서 만�
 ```
 inline은 inline-block와 다르게 width/height가 아니라 폰트 매트릭스에 따른 계산이 필요하므로 추후에 다루겠습니다.
 
-아무튼 각 줄마다 이런 inline-level 박스들을 가지고 있는 박스를 inline-box라고 하는데요.
-이 inline-box를 이해하면 vertical-align에 적용 가능한 값들 중 top/bottom을 완벽하게 이해할 수 있습니다.
-왜냐하면 top은 line-box의 최상단에, bottom은 line-box의 최하단에 정렬시켜주기 때문인데요.
+아무튼 각 줄마다 이런 inline-level 박스들을 가지고 있는 박스를 line box라고 하는데요.
+이 line box를 이해하면 vertical-align에 적용 가능한 값들 중 top/bottom을 완벽하게 이해할 수 있습니다.
+왜냐하면 top은 line box의 최상단에, bottom은 line box의 최하단에 정렬시켜주기 때문인데요.
 그렇다면 line-box는 어떻게 계산되는 걸까요?
 
+많은 조건들이 있지만 첫 번째로 inline-level 요소들의 높이를 계산해서 가장 큰 값을 가져옵니다.
+아래의 예시를 보시죠!
+```
+.box {
+  display: inline-block;
+  width: 100px;
+}
+.big { height: 300px; }
+.medium { height: 200px; }
+.small { height: 100px; }
+.top { vertical-align: top; }
+.bottom { vertical-align: bottom; }
+```
+```
+<div>
+  <div class="box small top"></div>
+  <div class="box big top"></div>
+  <div class="box small bottom"></div>
+</div>
+```
+(렌더링된 화면)
+높이가 300px인 박스 한 개와 100px인 박스 두 개를 만들었습니다.
+그리고 작은 박스 두 개에 각각 top과 bottom을 줬는데요.
+보시다시피 가장 큰 inline-level 요소인 300px 박스를 기준으로 최상단과 하단에 배치됩니다.
+큰 박스에는 top을 줬지만 line box와 높이가 같으므로 위치의 변화는 없습니다.
 
 ```
-1. The height of each inline-level box in the line box is calculated.
-2. The inline-level boxes are aligned vertically according to their 'vertical-align' property. In case they are aligned 'top' or 'bottom', they must be aligned so as to minimize the line box height. If such boxes are tall enough, there are multiple solutions (i.e., the position of the strut, see below).
-3. The line box height is the distance between the uppermost box top and the lowermost box bottom. (This includes the strut, as explained under 'line-height' below.)
+<div>
+  <div class="box small top"></div>
+  <div class="box big top"></div>
+  <div class="box small bottom"></div>
+  <div class="box medium bottom"></div>
+</div>
 ```
+높이가 200px인 박스를 추가했지만 여전히 가장 큰 높이는 300px이므로, 높이가 300px인 line box를 기준으로 수직정렬됩니다.
