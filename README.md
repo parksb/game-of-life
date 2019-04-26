@@ -30,9 +30,13 @@ inline은 inline-block와 다르게 width/height가 아니라 폰트 매트릭�
 많은 조건들이 있지만 첫 번째로 inline-level 요소들의 높이를 계산해서 가장 큰 값을 가져옵니다.
 아래의 예시를 보시죠!
 ```
+.container {
+  border: 1px solid gray;
+}
 .box {
   display: inline-block;
   width: 100px;
+  background-color: white-smoke;
 }
 .big { height: 300px; }
 .medium { height: 200px; }
@@ -41,7 +45,7 @@ inline은 inline-block와 다르게 width/height가 아니라 폰트 매트릭�
 .bottom { vertical-align: bottom; }
 ```
 ```
-<div>
+<div class="container">
   <div class="box small top"></div>
   <div class="box big top"></div>
   <div class="box small bottom"></div>
@@ -54,11 +58,60 @@ inline은 inline-block와 다르게 width/height가 아니라 폰트 매트릭�
 큰 박스에는 top을 줬지만 line box와 높이가 같으므로 위치의 변화는 없습니다.
 
 ```
-<div>
+<div class="container">
   <div class="box small top"></div>
   <div class="box big top"></div>
   <div class="box small bottom"></div>
   <div class="box medium bottom"></div>
 </div>
 ```
+(렌더링된 화면)
 높이가 200px인 박스를 추가했지만 여전히 가장 큰 높이는 300px이므로, 높이가 300px인 line box를 기준으로 수직정렬됩니다.
+
+그럼 inline-level 요소들의 높이보다 더 크게 line box를 만드려면 어떻게 해야 할까요?
+[strut에 대한 설명](https://www.w3.org/TR/CSS2/visudet.html#strut)을 보면 그 답을 알 수 있습니다.
+```
+컨텐츠가 inline-level 요소로 구성된 블록 컨테이너 요소에서 'line-height'는 line box의 최소 높이를 지정합니다.
+최소 높이는 baseline 위의 최소 높이와 그 아래의 최소 깊이로 구성되며, 각 line box들의 시작이 font/line-height 속성을 가지고 width 0인 inline box인 것과 같습니다.
+우리는 이 가상의 박스를 "strut"라고 부릅니다.
+```
+조금 풀어 써보자면 width가 0이어서 layout에는 영향을 주지 않는 가상의 박스가 있는데 이를 strut라고 하고,
+이 strut는 부모 block 요소로부터 font/line-height를 상속받아 inline-level 요소처럼 line box에 영향을 미친다는 뜻입니다.
+line-height가 100px로 지정된 block요소는 100px, font-size가 15px에 line-height가 5로 지정되었다면 75px 높이를 가지는 strut를 만들 수 있죠!
+
+```
+<div class="container" style="line-height: 300px;">
+  <div class="box small top"></div>
+  <div class="box big top"></div>
+  <div class="box small bottom"></div>
+  <div class="box medium bottom"></div>
+</div>
+```
+(렌더링된 화면)
+먼저 line-height를 300px로 지정한 화면입니다.
+기존과 마찬가지로 line box의 높이가 300px이므로 별다른 변화는 없습니다.
+
+
+```
+<div class="container" style="line-height: 400px;">
+  <div class="box small top"></div>
+  <div class="box big top"></div>
+  <div class="box small bottom"></div>
+  <div class="box medium bottom"></div>
+</div>
+```
+(렌더링된 화면)
+line-height를 400px로 지정한 화면입니다.
+line box가 400px로 늘어나서 위치가 달라졌습니다!
+
+```
+<div class="container" style="height: 400px;">
+  <div class="box small top"></div>
+  <div class="box big top"></div>
+  <div class="box small bottom"></div>
+  <div class="box medium bottom"></div>
+</div>
+```
+(렌더링된 화면)
+그럼 line-height가 아니라 height가 400px로 늘어나면 어떻게 될까요?
+안타깝지만 height는 line box에 영향을 주지 않기 때문에 line box는 300px로 유지됩니다.
