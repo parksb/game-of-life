@@ -1,5 +1,6 @@
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const transformInferno = require('ts-transform-inferno').default;
 
 module.exports = {
 	entry: "./src/index.tsx",
@@ -14,9 +15,16 @@ module.exports = {
 	},
 	module: {
 		rules: [{
-			test: /\.(js|jsx|tsx|ts)$/,
-			loaders: 'babel-loader',
-			exclude: /node_modules/
+			test: /\.tsx$/,
+			loader: 'ts-loader',
+			options: {
+				getCustomTransformers: () => ({
+					before: [transformInferno()],
+				}),
+			},
+		}, {
+			test: /\.ts$/,
+			loader: 'ts-loader',
 		}]
 	},
 	plugins: [

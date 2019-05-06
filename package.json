@@ -19,12 +19,9 @@
     "inferno": "^7.1.9"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.4",
-    "@babel/preset-env": "^7.4.4",
-    "@babel/preset-typescript": "^7.3.3",
-    "babel-loader": "^8.0.5",
-    "babel-plugin-inferno": "^6.0.5",
     "clean-webpack-plugin": "^2.0.1",
+    "ts-transform-inferno": "^4.0.2",
+    "ts-loader": "^5.4.5",
     "typescript": "^3.4.5",
     "webpack": "^4.30.0",
     "webpack-cli": "^3.3.2"
