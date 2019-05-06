@@ -69,3 +69,4 @@ $RECYCLE.BIN/
 ### Custom
 .idea
 node_modules
+package-lock.json

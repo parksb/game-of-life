@@ -16,11 +16,8 @@
     "url": "https://github.com/TroyTae/material-components-web-inferno/issues"
   },
   "devDependencies": {
-    "tslib": "^1.9.3",
     "typescript": "^3.4.5",
-    "rollup": "^1.11.3",
-    "rollup-plugin-uglify": "^6.0.2",
-    "rollup-plugin-typescript": "^1.0.1"
+    "webpack": "^4.30.0"
   },
   "scripts": {
     "build": "rollup --config bin/rollup.config.js"

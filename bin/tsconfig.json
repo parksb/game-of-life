@@ -1,8 +1,0 @@
-{
-  "target": "es3",
-  "sourceMap": false,
-  "removeComments": true,
-  "emitDecoratorMetadata": true,
-  "experimentalDecorators": true,
-  "suppressImplicitAnyIndexErrors": true
-}
