@@ -15,12 +15,23 @@
   "bugs": {
     "url": "https://github.com/TroyTae/material-components-web-inferno/issues"
   },
+  "dependencies": {
+    "inferno": "^7.1.9"
+  },
   "devDependencies": {
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "@babel/preset-typescript": "^7.3.3",
+    "babel-loader": "^8.0.5",
+    "babel-plugin-inferno": "^6.0.5",
+    "clean-webpack-plugin": "^2.0.1",
     "typescript": "^3.4.5",
-    "webpack": "^4.30.0"
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.2"
   },
   "scripts": {
-    "build": "rollup --config bin/rollup.config.js"
+    "build:dev": "webpack --mode=development",
+    "build:prod": "webpack --mode=production"
   },
   "license": "MIT",
   "keywords": [
