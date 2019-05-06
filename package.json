@@ -1,0 +1,37 @@
+{
+  "name": "material-components-web-inferno",
+  "version": "0.1.1",
+  "description": "Don't use this module yet! I'm working on development.",
+  "main": "dist/index.min.js",
+  "author": {
+    "name": "Troy Tae",
+    "email": "tjy970721@gmail.com",
+    "url": "https://github.com/TroyTae"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/TroyTae/material-components-web-inferno.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TroyTae/material-components-web-inferno/issues"
+  },
+  "devDependencies": {
+    "tslib": "^1.9.3",
+    "typescript": "^3.4.5",
+    "rollup": "^1.11.3",
+    "rollup-plugin-uglify": "^6.0.2",
+    "rollup-plugin-typescript": "^1.0.1"
+  },
+  "scripts": {
+    "build": "rollup --config bin/rollup.config.js"
+  },
+  "license": "MIT",
+  "keywords": [
+    "front-end",
+    "javascript",
+    "inferno",
+    "design",
+    "material",
+    "component"
+  ]
+}
