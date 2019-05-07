@@ -1,4 +1,6 @@
 import {render} from "inferno";
-import MyComponent from './main.js'
+import {MDCButton} from './main';
 
-render(<MyComponent />, document.getElementById('app'));
+import './index.scss';
+
+render(<MDCButton>Test!</MDCButton>, document.getElementById('app'));

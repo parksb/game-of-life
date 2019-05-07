@@ -3,7 +3,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const transformInferno = require('ts-transform-inferno').default;
 
 module.exports = {
-  entry: "./src/index.tsx",
+  entry: "./packages/index.tsx",
   output: {
     path: path.join(process.cwd(), "dist"),
     libraryTarget: "umd",

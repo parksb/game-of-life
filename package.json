@@ -16,7 +16,8 @@
     "url": "https://github.com/TroyTae/material-components-web-inferno/issues"
   },
   "dependencies": {
-    "inferno": "^7.1.9"
+    "inferno": "^7.1.9",
+    "@material/button": "^2.0.0"
   },
   "devDependencies": {
     "clean-webpack-plugin": "^2.0.1",
