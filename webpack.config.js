@@ -1,5 +1,5 @@
 const path = require('path');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+// const CleanWebpackPlugin = require('clean-webpack-plugin');
 const transformInferno = require('ts-transform-inferno').default;
 
 module.exports = {
@@ -27,7 +27,5 @@ module.exports = {
       loader: 'ts-loader',
     }]
   },
-  plugins: [
-    new CleanWebpackPlugin({})
-  ],
+  plugins: [],
 };

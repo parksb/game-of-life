@@ -17,7 +17,12 @@ config.module.rules.push({
   use: [
     "style-loader",
     "css-loader",
-    "sass-loader"
+    {
+      loader: "sass-loader",
+      options: {
+        includePaths: ["./node_modules"]
+      }
+    }
   ]
 });
 module.exports = config;

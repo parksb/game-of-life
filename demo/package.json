@@ -8,6 +8,7 @@
     "sass-loader": "^7.1.0",
     "node-sass": "^4.12.0",
     "html-webpack-plugin": "^3.2.0",
-    "webpack-dev-server": "^3.3.1"
+    "webpack-dev-server": "^3.3.1",
+    "material-components-web-inferno": "^0.1.2"
   }
 }

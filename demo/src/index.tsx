@@ -1,6 +1,6 @@
 import {render} from "inferno";
-import {MDCButton} from './main';
+import {MDCButton} from 'material-components-web-inferno';
 
-import './index.scss';
+import '@material/button/mdc-button.scss';
 
 render(<MDCButton>Test!</MDCButton>, document.getElementById('app'));

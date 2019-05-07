@@ -1,8 +1,9 @@
 {
   "name": "material-components-web-inferno",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Don't use this module yet! I'm working on development.",
-  "main": "dist/index.min.js",
+  "main": "./dist/main.js",
+  "types": "./dist/main.d.ts",
   "author": {
     "name": "Troy Tae",
     "email": "tjy970721@gmail.com",
