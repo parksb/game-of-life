@@ -1,6 +1,6 @@
 {
   "name": "material-components-web-inferno",
-  "version": "0.1.2",
+  "version": "0.1.5",
   "description": "Don't use this module yet! I'm working on development.",
   "main": "./dist/main.js",
   "types": "./dist/main.d.ts",
@@ -21,7 +21,9 @@
     "@material/button": "^2.0.0"
   },
   "devDependencies": {
+    "classnames": "^2.2.6",
     "clean-webpack-plugin": "^2.0.1",
+    "inferno-clone-vnode": "^7.1.12",
     "ts-transform-inferno": "^4.0.2",
     "ts-loader": "^5.4.5",
     "typescript": "^3.4.5",

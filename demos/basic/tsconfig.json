@@ -14,8 +14,7 @@
     "strictNullChecks": true,
     "removeComments": false
   },
-  "files": ["type.d.ts"],
-  "include": ["packages/**/*"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules"],
   "compileOnSave": false
 }

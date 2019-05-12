@@ -1,15 +1,14 @@
 const path = require('path');
-// const CleanWebpackPlugin = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const transformInferno = require('ts-transform-inferno').default;
 
 module.exports = {
-  entry: "./packages/index.tsx",
+  entry: "./src/index.tsx",
   output: {
     path: path.join(process.cwd(), "dist"),
     libraryTarget: "umd",
     filename: "[name].js"
   },
-  externals: ["inferno"],
   resolve: {
     extensions: [".js", ".jsx", ".ts", ".tsx"]
   },
@@ -25,7 +24,28 @@ module.exports = {
           before: [transformInferno()],
         }),
       },
+    }, {
+      test: /\.scss/,
+      use: [
+        "style-loader",
+        "css-loader",
+        {
+          loader: "sass-loader",
+          options: {
+            includePaths: ["./node_modules"]
+          }
+        }
+      ]
     }]
   },
-  plugins: []
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./src/index.html",
+      inject: "body"
+    })
+  ],
+  devServer: {
+    contentBase: "src/",
+    historyApiFallback: true
+  }
 };
