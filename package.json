@@ -1,9 +1,7 @@
 {
-  "name": "material-components-web-inferno",
-  "version": "0.1.5",
-  "description": "Don't use this module yet! I'm working on development.",
-  "main": "./dist/main.js",
-  "types": "./dist/main.d.ts",
+  "name": "material-components-web-react-sample",
+  "version": "0.0.0",
+  "description": "Simple example for material-components-web-react!",
   "author": {
     "name": "Troy Tae",
     "email": "tjy970721@gmail.com",
@@ -11,26 +9,32 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/TroyTae/material-components-web-inferno.git"
+    "url": "git://github.com/TroyTae/material-components-web-react-example.git"
   },
   "bugs": {
-    "url": "https://github.com/TroyTae/material-components-web-inferno/issues"
+    "url": "https://github.com/TroyTae/material-components-web-react-example/issues"
   },
   "dependencies": {
-    "inferno": "^7.1.9",
-    "@material/button": "^2.0.0"
-  },
-  "devDependencies": {
-    "classnames": "^2.2.6",
-    "clean-webpack-plugin": "^2.0.1",
-    "inferno-clone-vnode": "^7.1.12",
-    "ts-transform-inferno": "^4.0.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
     "ts-loader": "^5.4.5",
     "typescript": "^3.4.5",
-    "webpack": "^4.30.0",
-    "webpack-cli": "^3.3.2"
+    "style-loader": "^0.23.1",
+    "css-loader": "^2.1.1",
+    "sass-loader": "^7.1.0",
+    "node-sass": "^4.12.0",
+    "webpack": "^4.31.0",
+    "webpack-cli": "^3.3.2",
+    "webpack-dev-server": "^3.3.1",
+    "clean-webpack-plugin": "^2.0.2",
+    "html-webpack-plugin": "^3.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^16.8.17",
+    "@types/react-dom": "^16.8.4"
   },
   "scripts": {
+    "start": "webpack-dev-server",
     "build:dev": "webpack --mode=development",
     "build:prod": "webpack --mode=production"
   },
@@ -38,7 +42,6 @@
   "keywords": [
     "front-end",
     "javascript",
-    "inferno",
     "design",
     "material",
     "component"

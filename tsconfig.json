@@ -1,21 +1,15 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "es6",
-    "allowJs": false,
-    "allowSyntheticDefaultImports": true,
     "preserveConstEnums": true,
-    "sourceMap": true,
+    "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
-    "lib": ["es6", "es7", "dom"],
-    "types": ["inferno"],
-    "jsx": "preserve",
-    "noUnusedLocals": true,
+    "module": "commonjs",
+    "target": "es5",
+    "jsx": "react",
     "strictNullChecks": true,
     "removeComments": false
   },
-  "files": ["type.d.ts"],
-  "include": ["packages/**/*"],
+  "include": ["./src/**/*"],
   "exclude": ["node_modules"],
   "compileOnSave": false
 }

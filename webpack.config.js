@@ -1,31 +1,40 @@
-const path = require('path');
-// const CleanWebpackPlugin = require('clean-webpack-plugin');
-const transformInferno = require('ts-transform-inferno').default;
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CleanWebpackPlugin = require("clean-webpack-plugin");
 
 module.exports = {
-  entry: "./packages/index.tsx",
+  entry: "./src/index.tsx",
   output: {
     path: path.join(process.cwd(), "dist"),
-    libraryTarget: "umd",
-    filename: "[name].js"
+    filename: "[name].[chunkhash].js",
+    crossOriginLoading: false
   },
-  externals: ["inferno"],
-  resolve: {
-    extensions: [".js", ".jsx", ".ts", ".tsx"]
-  },
+  resolve: { extensions: [".js", ".jsx", ".ts", ".tsx"] },
   module: {
     rules: [{
-      test: /\.ts$/,
-      loader: "ts-loader",
+      test: /\.scss$/,
+      loader: [
+        "style-loader",
+        {
+          loader: "css-loader",
+          options: { modules: true }
+        },
+        {
+          loader: "sass-loader",
+          options: { includePaths: ["./node_modules"] }
+        }
+      ]
     }, {
-      test: /\.tsx$/,
-      loader: "ts-loader",
-      options: {
-        getCustomTransformers: () => ({
-          before: [transformInferno()],
-        }),
-      },
+      test: /\.tsx?$/,
+      loader: "ts-loader"
     }]
   },
-  plugins: []
+  plugins: [
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin({ template: "./src/index.html" })
+  ],
+  devServer: {
+    port: 4200,
+    historyApiFallback: true
+  },
 };
