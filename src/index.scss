@@ -1,12 +1,25 @@
 @import '~@material/react-button/index';
+@import "~@material/react-checkbox/index";
 @import '~@material/react-material-icon/index';
+
+label {
+  font-family: Roboto, sans-serif;
+}
 
 :local .container {
   padding: 5px;
   > .wrapper {
     margin-bottom: 10px;
     > .component {
-      margin-left: 5px;
+      display: inline-block;
+      margin-left: 10px;
+      margin-bottom: 10px;
     }
+  }
+}
+
+:local .checkbox {
+  > .check, > .label {
+    vertical-align: middle;
   }
 }
