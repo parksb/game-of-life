@@ -17,7 +17,9 @@ module.exports = {
         "style-loader",
         {
           loader: "css-loader",
-          options: { modules: true }
+          options: {
+            modules: 'global'
+          }
         },
         {
           loader: "sass-loader",
