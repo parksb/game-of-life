@@ -37,8 +37,7 @@
   },
   "scripts": {
     "start": "webpack-dev-server",
-    "build:dev": "webpack --mode=development",
-    "build:prod": "webpack --mode=production"
+    "build": "webpack --mode=production"
   },
   "license": "MIT",
   "keywords": [

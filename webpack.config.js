@@ -5,7 +5,7 @@ const CleanWebpackPlugin = require("clean-webpack-plugin");
 module.exports = {
   entry: "./src/index.tsx",
   output: {
-    path: path.join(process.cwd(), "dist"),
+    path: path.join(process.cwd(), "docs"),
     filename: "[name].[chunkhash].js",
     crossOriginLoading: false
   },
