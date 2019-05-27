@@ -11,10 +11,13 @@ const menus = [{
   icon: 'play_circle_outline',
 }, {
   text: 'Card',
-  icon: 'check_box',
+  icon: 'video_label',
 }, {
   text: 'Checkbox',
   icon: 'check_box',
+}, {
+  text: 'Chips',
+  icon: 'edit_attributes',
 }];
 
 export default () => <MenuContext.Consumer>
