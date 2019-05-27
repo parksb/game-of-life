@@ -15,26 +15,39 @@ class Component extends React.Component {
   state = {
     menu: {
       isOpen: false,
+      selectedIndex: 0,
     },
   };
 
-  setOpen = (open: boolean) => {
-    this.setState({
-      menu: { isOpen: open },
-    });
+  setOpen = (isOpen: boolean) => {
+    this.state.menu.isOpen = isOpen;
+    this.setState(this.state);
+  };
+
+  setSelectedIndex = (selectedIndex: number) => {
+    this.state.menu.selectedIndex = selectedIndex;
+    this.setState(this.state);
   };
 
   render() {
+    const {
+      isOpen,
+      selectedIndex,
+    } = this.state.menu;
     return <MenuContext.Provider value={{
-      isOpen: this.state.menu.isOpen,
+      isOpen: isOpen,
+      selectedIndex: selectedIndex,
       setOpen: this.setOpen,
+      setSelectedIndex: this.setSelectedIndex,
     }}>
       <Drawer />
       <TopAppBar />
       <TopAppBarFixedAdjust>
         <Grid>
-          <h1>Button</h1><Button/>
-          <h1>Checkbox</h1><Checkbox/>
+          {
+            selectedIndex === 0 ? <Button /> :
+            selectedIndex === 1 ? <Checkbox /> : null
+          }
         </Grid>
       </TopAppBarFixedAdjust>
     </MenuContext.Provider>;
