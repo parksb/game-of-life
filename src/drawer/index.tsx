@@ -10,6 +10,9 @@ const menus = [{
   text: 'Button',
   icon: 'play_circle_outline',
 }, {
+  text: 'Card',
+  icon: 'check_box',
+}, {
   text: 'Checkbox',
   icon: 'check_box',
 }];

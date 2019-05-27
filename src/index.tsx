@@ -4,6 +4,7 @@ import {Grid} from '@material/react-layout-grid';
 import {TopAppBarFixedAdjust} from '@material/react-top-app-bar';
 
 import Button from './button';
+import Card from './card';
 import Checkbox from './checkbox';
 import TopAppBar from './top-app-bar'
 import Drawer from './drawer'
@@ -46,7 +47,8 @@ class Component extends React.Component {
         <Grid>
           {
             selectedIndex === 0 ? <Button /> :
-            selectedIndex === 1 ? <Checkbox /> : null
+            selectedIndex === 1 ? <Card /> :
+            selectedIndex === 2 ? <Checkbox /> : null
           }
         </Grid>
       </TopAppBarFixedAdjust>
