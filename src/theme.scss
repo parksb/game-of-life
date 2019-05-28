@@ -1,0 +1,23 @@
+$mdc-theme-primary: #FF5FAB;
+$mdc-theme-secondary: #FF349C;
+$mdc-theme-on-primary: white;
+$mdc-theme-on-secondary: white;
+$mdc-theme-error: #F03E3E;
+$mdc-theme-on-error: white;
+
+$mdc-theme-text-colors: (
+  dark: (
+    primary: white,
+    secondary: rgba(white, .7),
+    hint: rgba(white, .5),
+    disabled: rgba(white, .5),
+    icon: rgba(white, .5)
+  ),
+  light: (
+    primary: rgba(black, .87),
+    secondary: rgba(black, .54),
+    hint: rgba(black, .38),
+    disabled: rgba(black, .38),
+    icon: rgba(black, .38)
+  )
+);

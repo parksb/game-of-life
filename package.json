@@ -32,6 +32,7 @@
   "devDependencies": {
     "@types/react": "^16.8.17",
     "@types/react-dom": "^16.8.4",
+    "@material/theme": "^1.1.0",
     "@material/react-button": "^0.12.1",
     "@material/react-card": "^0.12.1",
     "@material/react-chips": "^0.12.0",
