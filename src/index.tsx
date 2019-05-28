@@ -7,6 +7,7 @@ import Button from './button';
 import Card from './card';
 import Checkbox from './checkbox';
 import Radio from './radio';
+import Select from './select';
 import TopAppBar from './top-app-bar'
 import Drawer from './drawer'
 import {MenuContext} from './context';
@@ -50,7 +51,8 @@ class Component extends React.Component {
             selectedIndex === 0 ? <Button /> :
             selectedIndex === 1 ? <Card /> :
             selectedIndex === 2 ? <Checkbox /> :
-            selectedIndex === 3 ? <Radio /> : null
+            selectedIndex === 3 ? <Radio /> :
+            selectedIndex === 4 ? <Select /> : null
           }
         </Grid>
       </TopAppBarFixedAdjust>

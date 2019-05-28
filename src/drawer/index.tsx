@@ -18,6 +18,9 @@ const menus = [{
 }, {
   text: 'Radio',
   icon: 'edit_attributes',
+}, {
+  text: 'Select',
+  icon: 'edit_attributes',
 }];
 
 export default () => <MenuContext.Consumer>
