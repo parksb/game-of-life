@@ -10,6 +10,8 @@ import TopAppBar, {
 
 import {MenuContext} from '../context';
 
+const styles = require('./index.scss');
+
 export default () => <MenuContext.Consumer>
   {({setOpen}) => (
     <TopAppBar>
@@ -18,7 +20,7 @@ export default () => <MenuContext.Consumer>
           <TopAppBarIcon navIcon tabIndex={0}>
             <MaterialIcon hasRipple icon='menu' onClick={() => setOpen(true)}/>
           </TopAppBarIcon>
-          <TopAppBarTitle>Material Components</TopAppBarTitle>
+          <TopAppBarTitle className={styles.title}>Material Components React</TopAppBarTitle>
         </TopAppBarSection>
         <TopAppBarSection align='end'>
           <TopAppBarIcon actionItem tabIndex={0}>

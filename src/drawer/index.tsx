@@ -16,7 +16,7 @@ const menus = [{
   text: 'Checkbox',
   icon: 'check_box',
 }, {
-  text: 'Chips',
+  text: 'Radio',
   icon: 'edit_attributes',
 }];
 
