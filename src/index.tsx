@@ -1,6 +1,5 @@
 import * as React from 'react';
 import {render} from 'react-dom';
-import {Grid} from '@material/react-layout-grid';
 import {TopAppBarFixedAdjust} from '@material/react-top-app-bar';
 
 import Button from './button';
@@ -46,15 +45,13 @@ class Component extends React.Component {
       <Drawer />
       <TopAppBar />
       <TopAppBarFixedAdjust>
-        <Grid>
-          {
-            selectedIndex === 0 ? <Button /> :
-            selectedIndex === 1 ? <Card /> :
-            selectedIndex === 2 ? <Checkbox /> :
-            selectedIndex === 3 ? <Radio /> :
-            selectedIndex === 4 ? <Select /> : null
-          }
-        </Grid>
+        {
+          selectedIndex === 0 ? <Button /> :
+          selectedIndex === 1 ? <Card /> :
+          selectedIndex === 2 ? <Checkbox /> :
+          selectedIndex === 3 ? <Radio /> :
+          selectedIndex === 4 ? <Select /> : null
+        }
       </TopAppBarFixedAdjust>
     </MenuContext.Provider>;
   }

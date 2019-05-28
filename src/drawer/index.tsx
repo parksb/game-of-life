@@ -20,7 +20,7 @@ const menus = [{
   icon: 'edit_attributes',
 }, {
   text: 'Select',
-  icon: 'edit_attributes',
+  icon: 'storage',
 }];
 
 export default () => <MenuContext.Consumer>

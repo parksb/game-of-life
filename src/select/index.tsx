@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import Select, {Option, SelectHelperText, SelectIcon} from '@material/react-select';
-import {Cell, Row} from '@material/react-layout-grid';
+import {Cell, Grid, Row} from '@material/react-layout-grid';
 import MaterialIcon from "@material/react-material-icon";
 
 class DefaultSelect extends React.Component<any> {
@@ -43,15 +43,17 @@ class EnhancedSelect extends React.Component<any> {
   }
 }
 
-export default () => <Row>
-  <Cell><DefaultSelect /></Cell>
-  <Cell><DefaultSelect disabled /></Cell>
-  <Cell><DefaultSelect outlined /></Cell>
-  <Cell><DefaultSelect helperText={<SelectHelperText>Help me!</SelectHelperText>} /></Cell>
-  <Cell><DefaultSelect leadingIcon={<SelectIcon><MaterialIcon icon='flight' /></SelectIcon>} /></Cell>
-  <Cell><EnhancedSelect /></Cell>
-  <Cell><EnhancedSelect disabled /></Cell>
-  <Cell><EnhancedSelect outlined /></Cell>
-  <Cell><EnhancedSelect helperText={<SelectHelperText>Help me!</SelectHelperText>} /></Cell>
-  <Cell><EnhancedSelect leadingIcon={<SelectIcon><MaterialIcon icon='flight' /></SelectIcon>} /></Cell>
-</Row>;
+export default () => <Grid>
+  <Row>
+    <Cell><DefaultSelect /></Cell>
+    <Cell><DefaultSelect disabled /></Cell>
+    <Cell><DefaultSelect outlined /></Cell>
+    <Cell><DefaultSelect helperText={<SelectHelperText>Help me!</SelectHelperText>} /></Cell>
+    <Cell><DefaultSelect leadingIcon={<SelectIcon><MaterialIcon icon='flight' /></SelectIcon>} /></Cell>
+    <Cell><EnhancedSelect /></Cell>
+    <Cell><EnhancedSelect disabled /></Cell>
+    <Cell><EnhancedSelect outlined /></Cell>
+    <Cell><EnhancedSelect helperText={<SelectHelperText>Help me!</SelectHelperText>} /></Cell>
+    <Cell><EnhancedSelect leadingIcon={<SelectIcon><MaterialIcon icon='flight' /></SelectIcon>} /></Cell>
+  </Row>
+</Grid>;
