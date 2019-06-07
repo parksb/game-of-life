@@ -4,7 +4,7 @@
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
     "module": "commonjs",
-    "target": "es5",
+    "target": "es3",
     "jsx": "react",
     "strictNullChecks": true,
     "removeComments": false

@@ -1,20 +1,6 @@
 {
-  "name": "material-components-web-react-sample",
-  "version": "0.0.0",
-  "description": "Simple example for material-components-web-react!",
-  "author": {
-    "name": "Troy Tae",
-    "email": "tjy970721@gmail.com",
-    "url": "https://github.com/TroyTae"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/TroyTae/material-components-web-react-example.git"
-  },
-  "bugs": {
-    "url": "https://github.com/TroyTae/material-components-web-react-example/issues"
-  },
-  "dependencies": {
+  "private": true,
+  "devDependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "ts-loader": "^5.4.5",
@@ -27,9 +13,7 @@
     "webpack-cli": "^3.3.2",
     "webpack-dev-server": "^3.3.1",
     "clean-webpack-plugin": "^2.0.2",
-    "html-webpack-plugin": "^3.2.0"
-  },
-  "devDependencies": {
+    "html-webpack-plugin": "^3.2.0",
     "@types/react": "^16.8.17",
     "@types/react-dom": "^16.8.4",
     "@material/theme": "^1.1.0",
@@ -50,12 +34,5 @@
     "start": "webpack-dev-server",
     "build": "webpack --mode=production"
   },
-  "license": "MIT",
-  "keywords": [
-    "front-end",
-    "javascript",
-    "design",
-    "material",
-    "component"
-  ]
+  "license": "MIT"
 }
