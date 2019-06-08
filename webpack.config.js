@@ -1,12 +1,12 @@
-const path = require("path");
+const {CleanWebpackPlugin} = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const CleanWebpackPlugin = require("clean-webpack-plugin");
+const Path = require("path");
 
 module.exports = (env, arg) => {
   const config = {
     entry: "./src/index.tsx",
     output: {
-      path: path.join(process.cwd(), "docs"),
+      path: Path.join(process.cwd(), "docs"),
       filename: "[name].[chunkhash].js",
       crossOriginLoading: false
     },
