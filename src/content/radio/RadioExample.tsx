@@ -6,11 +6,6 @@ import {Cell, Grid, Row} from "@material/react-layout-grid";
 export const RadioExample = () => (
   <Grid>
     <Row>
-      <Cell
-        phoneColumns={4}
-        tabletColumns={8}
-        desktopColumns={12}
-      >Choice your framework!</Cell>
       <Cell>
         <Radio label='Angular' key='angular'>
           <NativeRadioControl
