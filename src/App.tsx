@@ -6,7 +6,7 @@ import {render} from "react-dom";
 import {MenuContext, UserContext} from "./Context";
 import {Menu} from "./menu/Menu";
 import {TopBar} from "./top-bar/TopBar";
-// import {Content} from "./content/Content";
+import {Content} from "./content/Content";
 
 class App extends React.Component {
   state = {
@@ -45,7 +45,7 @@ class App extends React.Component {
         }}>
           <Menu/>
           <TopBar/>
-          {/*<Content/>*/}
+          <Content/>
         </UserContext.Provider>
       </MenuContext.Provider>
     );

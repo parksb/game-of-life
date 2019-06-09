@@ -2,24 +2,25 @@ import React from "react";
 import {TopAppBarFixedAdjust} from "@material/react-top-app-bar";
 
 import {MenuContext} from "../Context";
-
-import Button from "./button";
-import Card from "./card";
-import Checkbox from "./checkbox";
-import Radio from "./radio";
-import Select from "./select";
+import {ButtonExample} from "./button/ButtonExample";
+import {CardExample} from "./card/CardExample";
+import {CheckboxExample} from "./checkbox/CheckboxExample";
+import {RadioExample} from "./radio/RadioExample";
+import {SelectExample} from "./select/SelectExample";
 
 export const Content = () => (
   <MenuContext.Consumer>
     {({selectedIndex}) => (
       <TopAppBarFixedAdjust>
-        {
-          selectedIndex === 0 ? <Button /> :
-            selectedIndex === 1 ? <Card /> :
-              selectedIndex === 2 ? <Checkbox /> :
-                selectedIndex === 3 ? <Radio /> :
-                  selectedIndex === 4 ? <Select /> : null
-        }
+        {(() => {
+          switch (selectedIndex) {
+            case 0: return <ButtonExample/>;
+            case 1: return <CardExample/>;
+            case 2: return <CheckboxExample/>;
+            case 3: return <RadioExample/>;
+            case 4: return <SelectExample/>;
+          }
+        })()}
       </TopAppBarFixedAdjust>
     )}
   </MenuContext.Consumer>

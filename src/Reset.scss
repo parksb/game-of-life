@@ -44,6 +44,11 @@ table {
 a {
   text-decoration: none;
 }
+select {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
 
 // theme
 $mdc-theme-primary: #FF5FAB;
