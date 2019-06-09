@@ -1,17 +1,12 @@
-import './Reset.scss';
+import "./Reset.scss";
 
-import React from 'react';
-import {render} from 'react-dom';
-import {TopAppBarFixedAdjust} from '@material/react-top-app-bar';
+import React from "react";
+import {render} from "react-dom";
 
-import Button from './button';
-import Card from './card';
-import Checkbox from './checkbox';
-import Radio from './radio';
-import Select from './select';
-import TopAppBar from './top-app-bar'
-import Drawer from './drawer'
-import {MenuContext} from './Context';
+import {MenuContext, UserContext} from "./Context";
+import {Menu} from "./menu/Menu";
+import {TopBar} from "./top-bar/TopBar";
+// import {Content} from "./content/Content";
 
 class App extends React.Component {
   state = {
@@ -36,24 +31,24 @@ class App extends React.Component {
       isOpen,
       selectedIndex,
     } = this.state.menu;
-    return <MenuContext.Provider value={{
-      isOpen: isOpen,
-      selectedIndex: selectedIndex,
-      setOpen: this.setOpen,
-      setSelectedIndex: this.setSelectedIndex,
-    }}>
-      <Drawer />
-      <TopAppBar />
-      <TopAppBarFixedAdjust>
-        {
-          selectedIndex === 0 ? <Button /> :
-          selectedIndex === 1 ? <Card /> :
-          selectedIndex === 2 ? <Checkbox /> :
-          selectedIndex === 3 ? <Radio /> :
-          selectedIndex === 4 ? <Select /> : null
-        }
-      </TopAppBarFixedAdjust>
-    </MenuContext.Provider>;
+
+    return (
+      <MenuContext.Provider value={{
+        isOpen: isOpen,
+        selectedIndex: selectedIndex,
+        setOpen: this.setOpen,
+        setSelectedIndex: this.setSelectedIndex,
+      }}>
+        <UserContext.Provider value={{
+          name: 'Troy Tae',
+          account: 'tjy970721@gmail.com',
+        }}>
+          <Menu/>
+          <TopBar/>
+          {/*<Content/>*/}
+        </UserContext.Provider>
+      </MenuContext.Provider>
+    );
   }
 }
 
