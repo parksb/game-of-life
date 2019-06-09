@@ -1,15 +1,25 @@
 {
   "compilerOptions": {
-    "preserveConstEnums": true,
-    "allowSyntheticDefaultImports": true,
-    "moduleResolution": "node",
-    "module": "commonjs",
-    "target": "es3",
     "jsx": "react",
+    "target": "es3",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "strict": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "preserveConstEnums": true,
     "strictNullChecks": true,
-    "removeComments": false
+    "removeComments": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true
   },
-  "include": ["./src/**/*"],
+  "include": ["src"],
   "exclude": ["node_modules"],
   "compileOnSave": false
 }

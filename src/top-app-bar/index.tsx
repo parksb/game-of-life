@@ -8,7 +8,7 @@ import TopAppBar, {
   TopAppBarTitle
 } from "@material/react-top-app-bar";
 
-import {MenuContext} from '../context';
+import {MenuContext} from '../Context';
 
 const styles = require('./index.scss');
 

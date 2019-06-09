@@ -1,4 +1,6 @@
-import * as React from 'react';
+import './Reset.scss';
+
+import React from 'react';
 import {render} from 'react-dom';
 import {TopAppBarFixedAdjust} from '@material/react-top-app-bar';
 
@@ -9,11 +11,9 @@ import Radio from './radio';
 import Select from './select';
 import TopAppBar from './top-app-bar'
 import Drawer from './drawer'
-import {MenuContext} from './context';
+import {MenuContext} from './Context';
 
-import './reset.scss';
-
-class Component extends React.Component {
+class App extends React.Component {
   state = {
     menu: {
       isOpen: false,
@@ -57,4 +57,4 @@ class Component extends React.Component {
   }
 }
 
-render(<Component/>, document.getElementById('app'));
+render(<App/>, document.getElementById('app'));

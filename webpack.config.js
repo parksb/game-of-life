@@ -4,7 +4,7 @@ const Path = require("path");
 
 module.exports = (env, arg) => {
   const config = {
-    entry: "./src/index.tsx",
+    entry: "./src/App.tsx",
     output: {
       path: Path.join(process.cwd(), "docs"),
       filename: "[name].[chunkhash].js",
@@ -31,7 +31,7 @@ module.exports = (env, arg) => {
       }]
     },
     plugins: [
-      new HtmlWebpackPlugin({ template: "./src/template.html" })
+      new HtmlWebpackPlugin({ template: "./src/Template.html" })
     ],
     devServer: {
       port: 4200,

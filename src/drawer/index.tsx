@@ -4,7 +4,7 @@ import Drawer, {DrawerContent, DrawerHeader, DrawerTitle, DrawerSubtitle} from '
 import List, {ListItem, ListItemGraphic, ListItemText} from '@material/react-list';
 import MaterialIcon from '@material/react-material-icon';
 
-import {MenuContext} from '../context';
+import {MenuContext} from '../Context';
 
 const menus = [{
   text: 'Button',
