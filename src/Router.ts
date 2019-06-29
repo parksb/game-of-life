@@ -23,7 +23,7 @@ export const Menus = [{
   component: ChipsExample,
 }, {
   text: 'Radio',
-  icon: 'edit_attributes',
+  icon: 'radio_button_checked',
   component: RadioExample,
 }, {
   text: 'Select',
