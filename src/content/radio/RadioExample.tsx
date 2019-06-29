@@ -33,6 +33,16 @@ export const RadioExample = () => (
           />
         </Radio>
       </Cell>
+      <Cell>
+        <Radio label='Disabled' key='disabled'>
+          <NativeRadioControl
+            disabled={true}
+            name='framework'
+            value='disabled'
+            id='disabled'
+          />
+        </Radio>
+      </Cell>
     </Row>
   </Grid>
 );

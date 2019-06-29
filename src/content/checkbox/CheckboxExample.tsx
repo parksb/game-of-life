@@ -10,15 +10,19 @@ export const CheckboxExample = () => (
     <Row>
       <Cell className={styles.checkbox}>
         <Checkbox nativeControlId='checkbox1' className={styles.check}/>
-        <label htmlFor='checkbox1' className={styles.label}>Checkbox1</label>
+        <label htmlFor='checkbox1' className={styles.label}>default</label>
+      </Cell>
+      <Cell className={styles.checkbox}>
+        <Checkbox nativeControlId='checkbox2' className={styles.check} checked={true}/>
+        <label htmlFor='checkbox2' className={styles.label}>checked</label>
       </Cell>
       <Cell className={styles.checkbox}>
         <Checkbox nativeControlId='checkbox2' className={styles.check} indeterminate={true}/>
-        <label htmlFor='checkbox2' className={styles.label}>Checkbox2</label>
+        <label htmlFor='checkbox2' className={styles.label}>indeterminate</label>
       </Cell>
       <Cell className={styles.checkbox}>
         <Checkbox nativeControlId='checkbox3' className={styles.check} disabled={true}/>
-        <label htmlFor='checkbox3' className={styles.label}>Checkbox3</label>
+        <label htmlFor='checkbox3' className={styles.label}>disabled</label>
       </Cell>
     </Row>
   </Grid>
