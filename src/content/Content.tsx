@@ -5,6 +5,7 @@ import {MenuContext} from "../Context";
 import {ButtonExample} from "./button/ButtonExample";
 import {CardExample} from "./card/CardExample";
 import {CheckboxExample} from "./checkbox/CheckboxExample";
+import {ChipsExample} from "./chips/ChipsExample";
 import {RadioExample} from "./radio/RadioExample";
 import {SelectExample} from "./select/SelectExample";
 
@@ -16,9 +17,10 @@ export const Content = () => (
           switch (selectedIndex) {
             case 0: return <ButtonExample/>;
             case 1: return <CardExample/>;
-            case 2: return <CheckboxExample/>;
-            case 3: return <RadioExample/>;
-            case 4: return <SelectExample/>;
+            case 2: return <ChipsExample/>;
+            case 3: return <CheckboxExample/>;
+            case 4: return <RadioExample/>;
+            case 5: return <SelectExample/>;
           }
         })()}
       </TopAppBarFixedAdjust>

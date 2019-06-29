@@ -19,6 +19,7 @@
     "@material/theme": "^3.0.0",
     "@material/react-button": "^0.14.0",
     "@material/react-card": "^0.14.0",
+    "@material/react-chips": "^0.14.0",
     "@material/react-checkbox": "^0.14.0",
     "@material/react-drawer": "^0.14.0",
     "@material/react-list": "^0.14.0",
