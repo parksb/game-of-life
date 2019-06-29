@@ -33,18 +33,18 @@ export const Menu = () => (
 
             <DrawerContent>
               <List singleSelection selectedIndex={selectedIndex}>
-                {Menus.map((menu, index) => <ListItem
-                  key={index}
-                  onClick={() => {
-                    setSelectedIndex(index);
-                    setOpen(false);
-                  }}
-                >
-                  <ListItemGraphic
-                    graphic={<MaterialIcon icon={menu.icon}/>}
-                  />
-                  <ListItemText primaryText={menu.text} />
-                </ListItem>)}
+                {Menus.map((menu, index) => (
+                  <ListItem
+                    key={index}
+                    onClick={() => {
+                      setSelectedIndex(index);
+                      setOpen(false);
+                    }}
+                  >
+                    <ListItemGraphic graphic={<MaterialIcon icon={menu.icon}/>} />
+                    <ListItemText primaryText={menu.text} />
+                  </ListItem>
+                ))}
               </List>
             </DrawerContent>
           </Drawer>
