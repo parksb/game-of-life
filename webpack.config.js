@@ -1,8 +1,10 @@
 const {CleanWebpackPlugin} = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const Path = require("path");
 
 module.exports = (env, arg) => {
+  const isProd = (arg.mode === 'production');
   const config = {
     entry: "./src/App.tsx",
     output: {
@@ -17,7 +19,7 @@ module.exports = (env, arg) => {
       rules: [{
         test: /\.scss$/,
         loader: [{
-          loader: "style-loader"
+          loader: MiniCssExtractPlugin.loader
         }, {
           loader: "css-loader",
           options: { modules: 'global' }
@@ -31,7 +33,15 @@ module.exports = (env, arg) => {
       }]
     },
     plugins: [
-      new HtmlWebpackPlugin({ template: "./src/Template.html" })
+      new MiniCssExtractPlugin({
+        filename: '[name].[hash].css',
+        chunkFilename: '[id].[hash].css',
+      }),
+      new HtmlWebpackPlugin({
+        template: "./src/Template.html",
+        hash: true,
+        minify: isProd
+      })
     ],
     devServer: {
       port: 4200,
@@ -39,7 +49,7 @@ module.exports = (env, arg) => {
     },
   };
 
-  if (arg.mode === 'production') {
+  if (isProd) {
     config.plugins = config.plugins.concat([
       new CleanWebpackPlugin()
     ]);
