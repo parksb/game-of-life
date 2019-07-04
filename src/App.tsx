@@ -4,6 +4,7 @@ import React from "react";
 import {render} from "react-dom";
 import Fab from "@material/react-fab";
 import MaterialIcon from "@material/react-material-icon";
+import {Snackbar} from "@material/react-snackbar";
 
 import {MenuContext, UserContext} from "./Context";
 import {Menu} from "./menu/Menu";
@@ -48,11 +49,20 @@ class App extends React.Component {
           <Menu/>
           <TopBar/>
           <Content/>
-          <a target='_blank' href='https://github.com/TroyTae/material-components-web-react-example/issues' style={{
-            position: 'fixed',
-            right: '20px',
-            bottom: '30px',
-          }}>
+          <Snackbar
+            timeoutMs={10000}
+            message='You became a frogrammer!'
+            actionText='dismiss'
+          />
+          <a
+            target='_blank'
+            href='https://github.com/TroyTae/material-components-web-react-example/issues'
+            style={{
+              position: 'fixed',
+              right: '20px',
+              bottom: '30px',
+            }}
+          >
             <Fab icon={<MaterialIcon icon='bug_report' />} />
           </a>
         </UserContext.Provider>

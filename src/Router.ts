@@ -24,7 +24,7 @@ export const Menus = [{
   component: ChipsExample,
 }, {
     text: 'LinearProgress',
-    icon: 'edit_attributes',
+    icon: 'linear_scale',
     component: LinearProgressExample,
 }, {
   text: 'Radio',

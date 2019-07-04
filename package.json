@@ -27,6 +27,7 @@
     "@material/react-list": "^0.14.1",
     "@material/react-radio": "^0.14.1",
     "@material/react-select": "^0.14.1",
+    "@material/react-snackbar": "^0.14.1",
     "@material/react-menu": "^0.14.1",
     "@material/react-menu-surface": "^0.14.1",
     "@material/react-layout-grid": "^0.14.1",
