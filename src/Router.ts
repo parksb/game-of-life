@@ -2,6 +2,7 @@ import {ButtonExample} from "./content/button/ButtonExample";
 import {CardExample} from "./content/card/CardExample";
 import {CheckboxExample} from "./content/checkbox/CheckboxExample";
 import {ChipsExample} from "./content/chips/ChipsExample";
+import {LinearProgressExample} from "./content/linear-progress/LinearProgressExample";
 import {RadioExample} from "./content/radio/RadioExample";
 import {SelectExample} from "./content/select/SelectExample";
 
@@ -21,6 +22,10 @@ export const Menus = [{
   text: 'Chips',
   icon: 'edit_attributes',
   component: ChipsExample,
+}, {
+    text: 'LinearProgress',
+    icon: 'edit_attributes',
+    component: LinearProgressExample,
 }, {
   text: 'Radio',
   icon: 'radio_button_checked',
