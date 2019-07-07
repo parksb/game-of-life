@@ -1,46 +1,36 @@
 const {CleanWebpackPlugin} = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const Path = require("path");
 
 module.exports = (env, arg) => {
-  const isProd = (arg.mode === 'production');
   const config = {
-    entry: "./src/App.tsx",
+    entry: "./src/index.ts",
     output: {
       path: Path.join(process.cwd(), "docs"),
       filename: "[name].[chunkhash].js",
       crossOriginLoading: false
     },
     resolve: {
-      extensions: [".js", ".jsx", ".ts", ".tsx"]
+      extensions: [".js", ".ts"]
     },
     module: {
       rules: [{
-        test: /\.scss$/,
-        loader: [{
-          loader: MiniCssExtractPlugin.loader
-        }, {
-          loader: "css-loader",
-          options: { modules: 'global' }
-        }, {
-          loader: "sass-loader",
-          options: { includePaths: ["./node_modules"] }
-        }]
+        test: /\.(gif|ico)$/,
+        loader: "file-loader"
       }, {
-        test: /\.tsx?$/,
+        test: /\.ts$/,
         loader: "ts-loader"
       }]
     },
     plugins: [
-      new MiniCssExtractPlugin({
-        filename: '[name].[hash].css',
-        chunkFilename: '[id].[hash].css',
-      }),
       new HtmlWebpackPlugin({
-        template: "./src/Template.html",
-        hash: true,
-        minify: isProd
+        template: "./src/index.html",
+        minify: {
+          collapseBooleanAttributes: true,
+          collapseInlineTagWhitespace: true,
+          collapseWhitespace: true,
+          removeComments: true
+        }
       })
     ],
     devServer: {
@@ -49,7 +39,7 @@ module.exports = (env, arg) => {
     },
   };
 
-  if (isProd) {
+  if (arg.mode === "production") {
     config.plugins = config.plugins.concat([
       new CleanWebpackPlugin()
     ]);

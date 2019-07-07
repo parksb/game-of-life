@@ -1,8 +1,9 @@
-# material-components-web-react-example
+# webpack-static-webpage-example
 
 ## description
 
-A simple example using material-components-web-react!  
+A simple example using webpack!  
+If you create a static web page, this is a good example for you.  
 Issue and PR are always welcome :)  
 
 ## Installation
@@ -10,12 +11,11 @@ Issue and PR are always welcome :)
 ### Step1
 Clone this repository.
 ```
-git clone https://github.com/TroyTae/material-components-web-react-example.git
+git clone https://github.com/TroyTae/webpack-static-webpage-example.git
 ```
 
 ### Step2
-Open directory in your IDE or terminal.  
-And install npm modules.
+Install npm modules.
 *(If you are not install npm, do it first)*
 ```
 npm install
