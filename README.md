@@ -1,17 +1,16 @@
-# webpack-static-webpage-example
+# game-of-life
 
 ## description
 
-A simple example using webpack!  
-If you create a static web page, this is a good example for you.  
-Issue and PR are always welcome :)  
+Conway's game of life web version!
+Issue and PR are always welcome :)
 
 ## Installation
 
 ### Step1
 Clone this repository.
 ```
-git clone https://github.com/TroyTae/webpack-static-webpage-example.git
+git clone https://github.com/TroyTae/game-of-life.git
 ```
 
 ### Step2

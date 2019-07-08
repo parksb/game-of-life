@@ -20,8 +20,8 @@ export class GameOfLifeEngine {
     const ctx = cvs.getContext('2d');
 
     if (ctx) {
-      cvs.width = this.getCoordinateX(axis.x + 1) + DOTS_STYLE.MARGIN;
-      cvs.height = this.getCoordinateY(axis.y + 1) + DOTS_STYLE.MARGIN;
+      cvs.width = this.getCoordinateX(axis.x + 1);
+      cvs.height = this.getCoordinateY(axis.y + 1);
       ctx.fillStyle = DOTS_STYLE.COLOR;
 
       this.axis = axis;
