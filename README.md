@@ -2,8 +2,8 @@
 
 ## description
 
-Conway's game of life web version!
-Issue and PR are always welcome :)
+Conway's game of life web version!  
+Issue and PR are always welcome :)  
 
 ## Installation
 
