@@ -5,26 +5,40 @@ enum DOTS_STYLE {
   MARGIN = 3,
 }
 
-declare type Axis = {
-  x: number,
-  y: number,
+const Util = {
+  getCoordinateX(x: number) {
+    return (DOTS_STYLE.MARGIN + DOTS_STYLE.WIDTH) * x + DOTS_STYLE.MARGIN;
+  },
+  getCoordinateY(y: number) {
+    return (DOTS_STYLE.MARGIN + DOTS_STYLE.HEIGHT) * y + DOTS_STYLE.MARGIN;
+  },
 };
 
 export class GameOfLifeEngine {
-  axis: Axis;
+  x: number;
+  y: number;
+  intervalKey: null | number;
+  life: Array<Array<boolean>>;
   canvas: HTMLCanvasElement;
   context: CanvasRenderingContext2D;
 
-  constructor(axis: Axis) {
+  constructor(life: Array<Array<boolean>>) {
     const cvs = document.createElement('canvas');
     const ctx = cvs.getContext('2d');
+    const x = life
+      .map((children) => children.length)
+      .reduce((prev, next) => Math.min(prev, next))
+    ;
+    const y = life.length;
 
     if (ctx) {
-      cvs.width = this.getCoordinateX(axis.x + 1);
-      cvs.height = this.getCoordinateY(axis.y + 1);
+      cvs.width = Util.getCoordinateX(x);
+      cvs.height = Util.getCoordinateY(y);
       ctx.fillStyle = DOTS_STYLE.COLOR;
 
-      this.axis = axis;
+      this.x = x;
+      this.y = y;
+      this.life = life;
       this.canvas = cvs;
       this.context = ctx;
     } else {
@@ -36,36 +50,58 @@ export class GameOfLifeEngine {
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
   }
 
-  getCoordinateX(x: number) {
-    return (DOTS_STYLE.MARGIN + DOTS_STYLE.WIDTH) * x + DOTS_STYLE.MARGIN;
-  }
-
-  getCoordinateY(y: number) {
-    return (DOTS_STYLE.MARGIN + DOTS_STYLE.HEIGHT) * y + DOTS_STYLE.MARGIN;
-  }
-
   drawDot(x: number, y: number) {
     this.context.fillRect(
-      this.getCoordinateX(x),
-      this.getCoordinateY(y),
+      Util.getCoordinateX(x),
+      Util.getCoordinateY(y),
       DOTS_STYLE.WIDTH,
       DOTS_STYLE.HEIGHT,
     );
   }
 
-  draw1D(arr: Array<boolean>) {
+  drawDots() {
     this.clear();
-    arr.forEach((yn, i) => (
-      yn && this.drawDot(i, 0)
-    ));
-  }
-
-  draw2D(arr1: Array<Array<boolean>>) {
-    this.clear();
-    arr1.forEach((arr2, i) => {
-      arr2.forEach((yn, j) => (
+    this.life.forEach((children, i) => {
+      children.forEach((yn, j) => (
         yn && this.drawDot(j, i)
       ));
     });
+  }
+
+  isSurviveNextGeneration(x: number, y: number, isSurvive: boolean) {
+    const life = this.life;
+    const edgeX = this.x - 1;
+    const edgeY = this.y - 1;
+    const count = (
+      Number(0 < y && 0 < x && life[y - 1][x - 1])
+      + Number(0 < y && life[y - 1][x])
+      + Number(0 < y && x < edgeX && life[y - 1][x + 1])
+      + Number(0 < x && life[y][x - 1])
+      + Number(x < edgeX && life[y][x + 1])
+      + Number(y < edgeY && 0 < x && life[y + 1][x - 1])
+      + Number(y < edgeY && life[y + 1][x])
+      + Number(y < edgeY && x < edgeX && life[y + 1][x + 1])
+    );
+    return (isSurvive && (count === 2 || count === 3)) || (!isSurvive && count === 3);
+  }
+
+  startLife() {
+    this.stopLife();
+    this.intervalKey = window.setInterval(() => {
+      this.drawDots();
+      const life = this.life;
+      this.life = life.map((children, i) => (
+        children.map((yn, j) => (
+          this.isSurviveNextGeneration(j, i, yn)
+        ))
+      ));
+    }, 500);
+  }
+
+  stopLife() {
+    if (this.intervalKey !== null) {
+      clearInterval(this.intervalKey);
+      this.intervalKey = null;
+    }
   }
 }
